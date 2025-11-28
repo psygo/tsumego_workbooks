@@ -19,19 +19,27 @@
 
 \begin{document}
   \workbookTitlePage[%
-    korean title  = 수군대사전,
-    english title = Sugundaesajeon,
+    title  = {%
+      \vspace*{6cm}
+      \fontsize{40}{40}\selectfont
+      \textbf{수군대사전}
+      \\
+      \vspace{1cm}
+      \scshape\fontsize{36}{36}\selectfont
+      sugundaesajeon
+    },
   ]
 
-  \foreach \i in {1,2,...,23}{
+  \foreach \i in {1,2,...,24}{
     \problemDiagram[%
-      path                  = \repoPath/sgf/sugundaesajeon/1/\i.sgf,
+      path                  = \repoPath/sgf/sugundaesajeon/\i.sgf,
+      problem text          = ,
+      caption horizontal margin = -0.1cm,
       horizontal clip start = 8,
       horizontal clip end   = 19,
       vertical clip start   = 9,
       vertical clip end     = 19,
-    ]
-  }
-  \hspace*{-\fill}
-  % TODO: Fix the alignment for the last row
+    ]%
+  }%
+  \hspace*{-\fill}%
 \end{document}

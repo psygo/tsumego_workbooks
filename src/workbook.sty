@@ -87,7 +87,7 @@
   \noindent%
   \begin{minipage}[c]{0.3\linewidth}
     \hfill
-    \fontsize{13pt}{13pt}\selectfont \theproblemCounter \ \ \problemPlayer
+    \problemPlayer \ \ \fontsize{13pt}{13pt}\selectfont \theproblemCounter
     \hspace{\captionHorMargin}
     \vspace{\captionVertMargin}
     \begin{goban}[board dimension       = \problemSize,
@@ -199,11 +199,6 @@
   \pgfkeys{/phili/workbookTitlePage/.cd, #1}%
   \begin{titlepage}
     \centering
-
-    \scshape
-
-    \vspace*{5.75cm}
-    
     \workbookTitle
   \end{titlepage}
 }
