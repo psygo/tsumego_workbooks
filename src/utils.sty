@@ -7,19 +7,15 @@
   \newpage
 }
 
-% An unnumbered page.
-% From [this answer](https://tex.stackexchange.com/a/331068/64441).
-\newcommand\blankpage{
-  \pagenumbering{gobble}
-  \clearpage
-  \begingroup
+% From [this answer](https://tex.stackexchange.com/a/36881/64441)
+\usepackage{afterpage}
+\newcommand\blankpage{%
     \null
     \thispagestyle{empty}%
     \addtocounter{page}{-1}%
-    \hypersetup{pageanchor=false}%
-    \clearpage
-  \endgroup
+    \newpage%
 }
+
 
 \newcommand\clearedpage{
   \clearpage

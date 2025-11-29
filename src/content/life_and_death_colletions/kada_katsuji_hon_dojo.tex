@@ -5,8 +5,8 @@
   paperheight   = 297mm, 
   paperwidth    = 210mm,
   bindingoffset = 10mm,
-  left          = 7.5mm,
-  right         = 15mm,
+  left          = 4mm,
+  right         = 16mm,
   top           = 20mm,
   bottom        = 15mm,
   footskip      = 5mm,
@@ -20,25 +20,24 @@
     title  = {%
       \vspace*{6cm}
       \fontsize{40}{40}\selectfont
-      \textbf{수군대사전}
+      \textbf{加田詰碁ランク C}
       \\
-      \vspace{1cm}
+      \vspace{1.5cm}
       \scshape\fontsize{36}{36}\selectfont
-      sugundaesajeon
+      Kada Kasuji Tsumego Rank C
     },
   ]
   
-  \setcounter{page}{1}
-
-  \foreach \i in {1,2,...,24}{
+  \foreach \i in {1,2,...,12}{
     \problemDiagram[%
-      path                      = \repoPath/sgf/sugundaesajeon/\i.sgf,
+      path                      = \repoPath/sgf/kada_katsuji_hon_dojo/\i.sgf,
       problem text              = ,
-      caption horizontal margin = -0.1cm,
-      horizontal clip start     = 8,
-      horizontal clip end       = 19,
-      vertical clip start       = 9,
-      vertical clip end         = 19,
+      caption horizontal margin = -0.275cm,
+      caption vertical margin   = 0.3cm,
+      horizontal clip start     = 1,
+      horizontal clip end       = 11.5,
+      vertical clip start       = 1,
+      vertical clip end         = 10.5,
     ]%
   }%
   \hspace*{-\fill}%
