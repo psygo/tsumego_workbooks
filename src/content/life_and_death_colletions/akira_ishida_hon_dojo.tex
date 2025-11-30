@@ -4,9 +4,9 @@
 \usepackage[
   paperheight   = 297mm, 
   paperwidth    = 210mm,
-  bindingoffset = 10mm,
-  left          = 4mm,
-  right         = 20mm,
+  bindingoffset = 5mm,
+  left          = 12mm,
+  right         = 17mm,
   top           = 20mm,
   bottom        = 15mm,
   footskip      = 5mm,
@@ -28,11 +28,12 @@
     },
   ]
   
-  \foreach \i in {1,2,...,12}{
+  \foreach \i in {1,2,...,53}{
     \problemDiagram[%
       path                      = \repoPath/sgf/akira_ishida_hon_dojo/\i.sgf,
+      problem size              = 8.5,
       problem text              = ,
-      caption horizontal margin = -0.275cm,
+      caption horizontal margin = -0.85cm,
       caption vertical margin   = 0.3cm,
       horizontal clip start     = 1,
       horizontal clip end       = 11.5,
