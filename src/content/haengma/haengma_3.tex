@@ -17,8 +17,15 @@
 
 \begin{document}
   \workbookTitlePage[%
-    korean title  = 행마 3,
-    english title = Haengma 3,
+    title  = {%
+      \vspace*{6cm}
+      \fontsize{40}{40}\selectfont
+      \textbf{행마 3}
+      \\
+      \vspace{1.25cm}
+      \scshape\fontsize{36}{36}\selectfont
+      Haengma 3
+    },
   ]
   
   \blankpage
@@ -33,5 +40,15 @@
     chapter name = How to Respond (응수하는 방법),
     path         = {\repoPath/sgf/haengma/haengma_3/1},
     max problem  = 62,
+  ]
+  \haengmaChapterGenerator[%
+    chapter name = Connecting Your Groups (돌의 연결과 이음),
+    path         = {\repoPath/sgf/haengma/haengma_3/2},
+    max problem  = 4,
+  ]
+  \haengmaChapterGenerator[%
+    chapter name = Catching a Stone (돌을 잡는 방법),
+    path         = {\repoPath/sgf/haengma/haengma_3/3},
+    max problem  = 8,
   ]
 \end{document}
