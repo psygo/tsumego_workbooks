@@ -1,1 +1,15 @@
-(;GM[1]FF[4]CA[UTF-8]AP[Sabaki:0.52.2]KM[0.5]SZ[19]DT[2025-08-08]AB[pd][dp]PB[伯纳乌的王 (Pro)]PW[绝艺指导F (AI on Fox)]BR[9段]WR[10段];B[];W[qp];B[cd];W[cn];B[ec];W[nc];B[op];W[oq];B[nq];W[pq];B[np];W[qn];B[gq];W[fd];B[cp];W[ck];B[jp];W[fc];B[ed];W[fe];B[qf];W[pc];B[qc];W[qb];B[oc];W[pb];B[ob];W[od];B[nb];W[qd];B[pe];W[nd];B[mc];W[rd];B[ld];W[of];B[oe];W[ne];B[nf];W[me];B[og];W[mf];B[ng];W[ic];B[id];W[jc];B[lb];W[mg];B[ke];W[kg];B[jg];W[jh];B[ig];W[ih];B[hg];W[hh];B[gg];W[ee];B[fb];W[gb];B[eb];W[jd];B[kh];W[ki];B[lh];W[mh];B[li];W[pg];B[lg];W[pi];B[hd];W[ce])
+(;GM[1]FF[4]SZ[19]CA[utf-8]AP[SmartGo One:2.7]
+GN[1]
+PW[绝艺指导F (AI on Fox)]WR[10段]
+PB[伯纳乌的王 (Pro)]BR[9段]
+DT[2025-08-08]
+KM[0.5]
+AB[pd][dp]
+;B[];W[qp];B[cd];W[cn];B[ec];W[nc];B[op];W[oq];B[nq];W[pq];B[np];W[qn];B[gq]
+;W[fd];B[cp];W[ck];B[jp];W[fc];B[ed];W[fe];B[qf];W[pc];B[qc];W[qb];B[oc];W[pb]
+;B[ob];W[od];B[nb];W[qd];B[pe];W[nd];B[mc];W[rd];B[ld];W[of];B[oe];W[ne];B[nf]
+;W[me];B[og];W[mf];B[ng];W[ic];B[id];W[jc];B[lb];W[mg];B[ke];W[kg];B[jg];W[jh]
+;B[ig];W[ih];B[hg];W[hh];B[gg];W[ee];B[fb]
+C[This is better];W[gb];B[eb];W[jd];B[kh];W[ki];B[lh];W[mh];B[li];W[pg];B[lg]
+;W[pi];B[hd];W[ce])
+
