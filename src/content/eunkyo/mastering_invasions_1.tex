@@ -16,6 +16,7 @@
 \usepackage{\repoPath/config}
 
 \usepackage{graphicx}
+\usetikzlibrary{shapes.misc}
 
 \def\masteringInvasionsPath{sgf/eunkyo/mastering_invasions_1/}
 
@@ -52,9 +53,9 @@
       \vspace{-0.75cm}
       \Large
       \textbf{Dia. \theanswerDiagramCounter \ -- \answerTitle}
+      \vspace{0.5cm}
       \\
-      \\
-      If White plays at 1, Black kicks with 2 and pincers at 4, defending the corner while attacking White, a satisfying result for Black.
+      \answerText
     \end{minipage}
   \end{figure}
 }
@@ -75,6 +76,45 @@
       Eunkyo Do 1p's Mastering Invasions
     },
   ]
+
+  \begin{figure}
+    
+    \hspace{0.275cm}
+    \begin{tikzpicture}
+      \node (1) [%
+        draw,
+        rounded rectangle,
+        line width = 0.0mm,
+        draw = white,
+        fill = gray!20,
+        inner xsep = 0.425cm,
+        inner ysep = 0.35cm,
+      ] 
+        {\Huge Invasion 1};
+    \end{tikzpicture}
+
+    \centering
+    
+    \begin{goban}[board dimension       = 16.5,
+                  board size            = 19,
+                  scale                 = 1,
+                  outline line width    = 0.425mm,
+                  horizontal clip start = 1,
+                  horizontal clip end   = 19,
+                  vertical clip start   = 1,
+                  vertical clip end     = 19]
+      \parseSgfFile{\repoPath/\masteringInvasionsPath/invasion_1.sgf}
+    \end{goban}
+      
+    \vspace{0.5cm}
+
+    \begin{minipage}[c]{0.8\linewidth}
+      \Huge
+      Black is building a big area on the bottom side. How would you invade?
+    \end{minipage}
+  \end{figure}
+  
+  \newpage
   
   \answerDiagram[%
     path  = \masteringInvasionsPath/invasion_1.1.sgf,
