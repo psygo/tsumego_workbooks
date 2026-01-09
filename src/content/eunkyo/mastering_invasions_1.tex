@@ -17,6 +17,48 @@
 
 \usepackage{graphicx}
 
+\def\masteringInvasionsPath{sgf/eunkyo/mastering_invasions_1/}
+
+\pgfkeys{%
+  /phili/answerDiagram/.cd, 
+    path/.store in  = \answerPath,
+    path            = sgf,
+    title/.store in = \answerTitle,
+    title           = Title,
+    text/.store in  = \answerText,
+    text            = Text,
+}
+
+\newcounter{answerDiagramCounter}
+\setcounter{answerDiagramCounter}{0}
+\newcommand\answerDiagram[1][]{%
+  \pgfkeys{/phili/answerDiagram/.cd, #1}%
+  \stepcounter{answerDiagramCounter}%
+
+  \begin{figure}
+    \begin{minipage}[c]{0.675\linewidth}
+      \begin{goban}[board dimension       = 11,
+                    board size            = 19,
+                    scale                 = 1,
+                    outline line width    = 0.425mm,
+                    horizontal clip start = 1,
+                    horizontal clip end   = 19,
+                    vertical clip start   = 1,
+                    vertical clip end     = 10.5]
+        \parseSgfFile{\repoPath/\answerPath}
+      \end{goban}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.325\linewidth}
+      \vspace{-0.75cm}
+      \Large
+      \textbf{Dia. \theanswerDiagramCounter \ -- \answerTitle}
+      \\
+      \\
+      If White plays at 1, Black kicks with 2 and pincers at 4, defending the corner while attacking White, a satisfying result for Black.
+    \end{minipage}
+  \end{figure}
+}
+
 \begin{document}
   \workbookTitlePage[%
     title  = {%
@@ -34,141 +76,46 @@
     },
   ]
   
-  \begin{figure}
-    \begin{minipage}[c]{0.675\linewidth}
-      \begin{goban}[board dimension       = 11,
-                    board size            = 19,
-                    scale                 = 1,
-                    outline line width    = 0.425mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 10.5]
-        \parseSgfFile{\repoPath/sgf/eunkyo/mastering_invasions_1/invasion_1.1.sgf}
-      \end{goban}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.325\linewidth}
-      \vspace{-0.75cm}
-      \Large
-      \textbf{Dia. 1 -- Wrong}
-      \\
-      \\
+  \answerDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.1.sgf,
+    title = Wrong,
+    text  = {%
       If White plays at 1, Black kicks with 2 and pincers at 4, defending the corner while attacking White, a satisfying result for Black.
-    \end{minipage}
-  \end{figure}
-
-  \begin{figure}
-    \begin{minipage}[c]{0.675\linewidth}
-      \begin{goban}[board dimension       = 11,
-                    board size            = 19,
-                    scale                 = 1,
-                    outline line width    = 0.425mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 10.5]
-        \parseSgfFile{\repoPath/sgf/eunkyo/mastering_invasions_1/invasion_1.2.sgf}
-      \end{goban}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.325\linewidth}
-      \vspace{-0.8cm}
-      \Large
-      \textbf{Dia. 2 -- Wrong}
-      \\
-      \\
+    },
+  ]
+  \answerDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.2.sgf,
+    title = Wrong,
+    text  = {%
       Move 1 is a common error when invading this knight's enclosure from the 4-4. Usually, Black is satisfied with blocking the outside.
-    \end{minipage}
-  \end{figure}
-
-  \begin{figure}
-    \begin{minipage}[c]{0.675\linewidth}
-      \begin{goban}[board dimension       = 11,
-                    board size            = 19,
-                    scale                 = 1,
-                    outline line width    = 0.425mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 10.5]
-        \parseSgfFile{\repoPath/sgf/eunkyo/mastering_invasions_1/invasion_1.3.sgf}
-      \end{goban}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.325\linewidth}
-      \vspace{-0.8cm}
-      \Large
-      \textbf{Dia. 3 -- Continuation (Good for Black)}
-      \\
-      \\
+    },
+  ]
+  \answerDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.3.sgf,
+    title = Continuation (Good for Black),
+    text  = {%
       White can secure life in the corner with the sequence up to 7, but Black defends at 8 and is satisfied with the result.
-    \end{minipage}
-  \end{figure}
-  
-  \begin{figure}
-    \begin{minipage}[c]{0.675\linewidth}
-      \begin{goban}[board dimension       = 11,
-                    board size            = 19,
-                    scale                 = 1,
-                    outline line width    = 0.425mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 10.5]
-        \parseSgfFile{\repoPath/sgf/eunkyo/mastering_invasions_1/invasion_1.4.sgf}
-      \end{goban}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.325\linewidth}
-      \vspace{-0.75cm}
-      \Large
-      \textbf{Dia. 4 -- Correct}
-      \\
-      \\
+    },
+  ]
+  \answerDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.4.sgf,
+    title = Correct,
+    text  = {%
       White's low approach at 1 is the correct move. It effectively reduces both the corner and the side.
-    \end{minipage}
-  \end{figure}
-
-  \begin{figure}
-    \begin{minipage}[c]{0.675\linewidth}
-      \begin{goban}[board dimension       = 11,
-                    board size            = 19,
-                    scale                 = 1,
-                    outline line width    = 0.425mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 10.5]
-        \parseSgfFile{\repoPath/sgf/eunkyo/mastering_invasions_1/invasion_1.5.sgf}
-      \end{goban}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.325\linewidth}
-      \vspace{-0.75cm}
-      \Large
-      \textbf{Dia. 5 -- Continuation (Good for White)}
-      \\
-      \\
+    },
+  ]
+  \answerDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.5.sgf,
+    title = Continuation (Good for White),
+    text  = {%
       If Black defends the 3-3 point at 1, White is satisfied with 2. Later, White's move at A becomes very large.
-    \end{minipage}
-  \end{figure}
-
-  \begin{figure}
-    \begin{minipage}[c]{0.675\linewidth}
-      \begin{goban}[board dimension       = 11,
-                    board size            = 19,
-                    scale                 = 1,
-                    outline line width    = 0.425mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 10.5]
-        \parseSgfFile{\repoPath/sgf/eunkyo/mastering_invasions_1/invasion_1.6.sgf}
-      \end{goban}
-    \end{minipage}\hfill
-    \begin{minipage}[c]{0.325\linewidth}
-      \vspace{-0.75cm}
-      \Large
-      \textbf{Dia. 6 -- Proper Black Response}
-      \\
-      \\
+    },
+  ]
+  \answerDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.6.sgf,
+    title = Proper Black Response,
+    text  = {%
       Black's correct play is 1. White probes with 4 and stabilizes with 6. This is the most satisfactory result for both sides.
-    \end{minipage}
-  \end{figure}
+    },
+  ]
 \end{document}
