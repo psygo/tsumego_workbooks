@@ -60,6 +60,57 @@
   \end{figure}
 }
 
+\pgfkeys{%
+  /phili/chapterMainDiagram/.cd, 
+    path/.store in  = \chapterMainDiagramPath,
+    path            = sgf,
+    text/.store in  = \chapterMainDiagramText,
+    text            = Text,
+}
+
+\newcounter{chapterMainDiagramCounter}
+\setcounter{chapterMainDiagramCounter}{0}
+\newcommand\chapterMainDiagram[1][]{%
+  \pgfkeys{/phili/chapterMainDiagram/.cd, #1}%
+  \stepcounter{chapterMainDiagramCounter}%
+
+  \begin{figure}
+    \hspace{0.275cm}
+    \begin{tikzpicture}
+      \node (1) [%
+        draw,
+        rounded rectangle,
+        line width = 0.0mm,
+        draw = white,
+        fill = gray!20,
+        inner xsep = 0.425cm,
+        inner ysep = 0.35cm,
+      ] 
+        {\Huge Invasion \thechapterMainDiagramCounter};
+    \end{tikzpicture}
+
+    \centering
+    
+    \begin{goban}[board dimension       = 16.5,
+                  board size            = 19,
+                  scale                 = 1,
+                  outline line width    = 0.425mm,
+                  horizontal clip start = 1,
+                  horizontal clip end   = 19,
+                  vertical clip start   = 1,
+                  vertical clip end     = 19]
+      \parseSgfFile{\repoPath/\chapterMainDiagramPath}
+    \end{goban}
+      
+    \vspace{0.5cm}
+
+    \begin{minipage}[c]{0.8\linewidth}
+      \Huge
+      \chapterMainDiagramText
+    \end{minipage}
+  \end{figure}
+}
+
 \begin{document}
   \workbookTitlePage[%
     title  = {%
@@ -77,44 +128,13 @@
     },
   ]
 
-  \begin{figure}
-    
-    \hspace{0.275cm}
-    \begin{tikzpicture}
-      \node (1) [%
-        draw,
-        rounded rectangle,
-        line width = 0.0mm,
-        draw = white,
-        fill = gray!20,
-        inner xsep = 0.425cm,
-        inner ysep = 0.35cm,
-      ] 
-        {\Huge Invasion 1};
-    \end{tikzpicture}
-
-    \centering
-    
-    \begin{goban}[board dimension       = 16.5,
-                  board size            = 19,
-                  scale                 = 1,
-                  outline line width    = 0.425mm,
-                  horizontal clip start = 1,
-                  horizontal clip end   = 19,
-                  vertical clip start   = 1,
-                  vertical clip end     = 19]
-      \parseSgfFile{\repoPath/\masteringInvasionsPath/invasion_1.sgf}
-    \end{goban}
-      
-    \vspace{0.5cm}
-
-    \begin{minipage}[c]{0.8\linewidth}
-      \Huge
+  \chapterMainDiagram[%
+    path  = \masteringInvasionsPath/invasion_1.sgf,
+    text  = {%
       Black is building a big area on the bottom side. How would you invade?
-    \end{minipage}
-  \end{figure}
-  
-  \newpage
+    },
+  ]
+
   
   \answerDiagram[%
     path  = \masteringInvasionsPath/invasion_1.1.sgf,
