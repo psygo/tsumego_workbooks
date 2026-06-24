@@ -1,0 +1,32 @@
+\documentclass[12pt]{book}
+
+% A4
+\usepackage[
+  paperheight   = 297mm, 
+  paperwidth    = 210mm,
+  bindingoffset = 10mm,
+  left          = 7.5mm,
+  right         = 12.5mm,
+  top           = 20mm,
+  bottom        = 15mm,
+  footskip      = 5mm,
+]{geometry}
+
+\def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
+\usepackage{\repoPath/config}
+
+\begin{document}
+  \begin{center}
+    \hspace{0.5cm}
+    \begin{goban}[board dimension       = 16.675,
+                  board size            = 19,
+                  scale                 = 1,
+                  outline line width    = 0.55mm,
+                  horizontal clip start = 1,
+                  horizontal clip end   = 19,
+                  vertical clip start   = 1,
+                  vertical clip end     = 19]
+      \parseSgfFile{\repoPath/sgf/neofanaro.io/kato_chie_vs_yoshihiro_koike_p4.sgf}
+    \end{goban}
+  \end{center}
+\end{document}
