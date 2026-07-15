@@ -1,32 +1,32 @@
-\documentclass[12pt]{book}
+\documentclass[12pt]{standalone}
 
-% A4
-\usepackage[
-  paperheight   = 297mm, 
-  paperwidth    = 210mm,
-  bindingoffset = 10mm,
-  left          = 7.5mm,
-  right         = 12.5mm,
-  top           = 20mm,
-  bottom        = 15mm,
-  footskip      = 5mm,
-]{geometry}
+\usepackage{fontspec}
+\newfontfamily\clmuni{Latin Modern Roman}[%
+  Numbers={Lining,Proportional},%
+  FontFace={sb}{n}{Font=lmromandemi10-regular.otf},%
+  FontFace={sb}{sl}{Font=lmromandemi10-oblique.otf},%
+]
+
+\makeatletter
+\DeclareRobustCommand{\sbweight}{%
+  \not@math@alphabet\sbweight\relax
+  \fontseries{sb}\selectfont
+}
+\makeatother
+\DeclareTextFontCommand{\textsb}{\sbweight}
 
 \def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
-\usepackage{\repoPath/config}
+\usepackage{\repoPath/goban/goban}
 
 \begin{document}
-  \begin{center}
-    \hspace{0.5cm}
-    \begin{goban}[board dimension       = 16.675,
-                  board size            = 19,
-                  scale                 = 1,
-                  outline line width    = 0.55mm,
-                  horizontal clip start = 1,
-                  horizontal clip end   = 19,
-                  vertical clip start   = 1,
-                  vertical clip end     = 19]
-      \parseSgfFile{\repoPath/sgf/neofanaro.io/okaigo_ai_articles/okaigo_3.2.sgf}
-    \end{goban}
-  \end{center}
+  \begin{goban}[board dimension       = 16.675,
+                board size            = 19,
+                scale                 = 1,
+                outline line width    = 0.55mm,
+                horizontal clip start = 13,
+                horizontal clip end   = 19,
+                vertical clip start   = 12,
+                vertical clip end     = 19]
+    \parseSgfFile{\repoPath/sgf/neofanaro.io/ing_cup_rules/ing_cup_rules_2.sgf}
+  \end{goban}
 \end{document}
