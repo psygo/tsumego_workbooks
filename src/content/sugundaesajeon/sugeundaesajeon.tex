@@ -35,31 +35,38 @@
     },
   ]
   
+  \tableofcontents
+  
   \setcounter{page}{1}
 
-  % \chapter{Problemas Locais}
+  \chapter{Problemas Locais}
+  
+  \pagebreak
 
-  % \foreach \i in {1,2,...,2476}{
-  %   \edef\paddedi{\padfour{\i}}%
-  %   \problemDiagram[%
-  %     problem size              = 7.25,
-  %     path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
-  %     problem text              =,
-  %     caption horizontal margin = -0.1cm,
-  %     horizontal clip start     = 7,
-  %     horizontal clip end       = 19,
-  %     vertical clip start       = 1,
-  %     vertical clip end         = 19,
-  %   ]%
-  % }%
-  % \hspace*{-\fill}%
+  \foreach \i in {1,2,...,25}{
+    \edef\paddedi{\padfour{\i}}%
+    \problemDiagram[%
+      problem size              = 7.25,
+      path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
+      problem text              =,
+      caption horizontal margin = -0.1cm,
+      horizontal clip start     = 7,
+      horizontal clip end       = 19,
+      vertical clip start       = 1,
+      vertical clip end         = 19,
+    ]%
+  }%
+  \hspace*{-\fill}%
   
   \chapter{Problemas Globais}
+  
+  \pagebreak
 
   \foreach \i in {2477,2478,...,2500}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
-      problem size              = 6.5,
+      problem size              = 7.25,
+      line width                = 0.475,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
       problem text              =,
       caption horizontal margin = -0.1cm,

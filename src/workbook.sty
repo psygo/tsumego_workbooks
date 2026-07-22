@@ -68,8 +68,8 @@
     caption horizontal margin           = 0.125cm,
     problem size/.store in              = \problemSize,
     problem size                        = 8.75,
-    line width                          = 0.3,
     line width/.store in                = \problemLineWidth,
+    line width                          = 0.3,
     %-------------------------------------------------------
     % Partial Boards
     horizontal clip start/.store in     = \horClipStartT,
@@ -87,7 +87,7 @@
   \pgfkeys{/phili/problemDiagram/.cd, #1}%
   \stepcounter{problemCounter}%
   \noindent%
-  \begin{minipage}[c]{\theproblemLineWidth\linewidth}
+  \begin{minipage}[c]{\problemLineWidth\linewidth}
     % \hfill
     \centering
     \problemPlayer \ \ \fontsize{13pt}{13pt}\selectfont \theproblemCounter
