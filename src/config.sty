@@ -28,8 +28,8 @@
 %-----------------------------------------------------------
 % Language and Hyphenation
 
-\usepackage[english]{babel}
-% \usepackage[portuguese]{babel}
+% \usepackage[english]{babel}
+\usepackage[portuguese]{babel}
 \usepackage{microtype}
 \usepackage{hyphenat}
 % \hyphenation{pa-ra}
@@ -114,10 +114,10 @@
   {} % without page number
   [\addvspace{0.5cm}]
 \titlecontents{chapter}
-  [1.225cm] 
+  [1.225cm]
   {}
   {\bfseries\fontsize{18}{18}\selectfont\contentslabel{1.5em}}
-  {}
+  {\bfseries\fontsize{18}{18}\selectfont}
   {\titlerule*[1pc]{.}\bfseries\fontsize{16}{16}\selectfont\contentspage}
   [\addvspace{0.35cm}]
 % TODO: the chapter titles are not clickable anymore.

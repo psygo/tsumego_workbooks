@@ -35,7 +35,13 @@
     },
   ]
   
+  \frontmatter
+
   \tableofcontents
+
+  \chapter{Prefácio}
+  
+  \mainmatter
   
   \setcounter{page}{1}
 
@@ -43,12 +49,13 @@
   
   \pagebreak
 
-  \foreach \i in {1,2,...,25}{
+  \foreach \i in {1,2,...,9}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
       problem size              = 7.25,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
       problem text              =,
+      caption vertical margin   = 0.1cm,
       caption horizontal margin = -0.1cm,
       horizontal clip start     = 7,
       horizontal clip end       = 19,
@@ -62,13 +69,14 @@
   
   \pagebreak
 
-  \foreach \i in {2477,2478,...,2500}{
+  \foreach \i in {2477,2478,...,2482}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
       problem size              = 7.25,
       line width                = 0.475,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
       problem text              =,
+      caption vertical margin   = 0.2cm,
       caption horizontal margin = -0.1cm,
       horizontal clip start     = 1,
       horizontal clip end       = 19,
@@ -77,5 +85,4 @@
     ]%
   }%
   \hspace*{-\fill}%
-
 \end{document}

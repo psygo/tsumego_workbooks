@@ -90,9 +90,10 @@
   \begin{minipage}[c]{\problemLineWidth\linewidth}
     % \hfill
     \centering
+    \vspace{\captionVertMargin}
     \problemPlayer \ \ \fontsize{13pt}{13pt}\selectfont \theproblemCounter
     \hspace{\captionHorMargin}
-    \vspace{\captionVertMargin}
+    % \vspace{\captionVertMargin}
     \begin{goban}[board dimension       = \problemSize,
                   board size            = 19,
                   scale                 = 1,
@@ -102,7 +103,7 @@
                   vertical clip start   = \verClipStartT,
                   vertical clip end     = \verClipEndT,]
       \parseSgfFile{\problemPath}
-    \end{goban}
+    \end{goban}%
   \end{minipage}\hfill
 }
 
