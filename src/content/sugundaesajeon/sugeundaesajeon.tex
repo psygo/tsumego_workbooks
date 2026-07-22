@@ -1,0 +1,74 @@
+\documentclass[12pt]{book}
+
+% A4
+\usepackage[
+  paperheight   = 297mm, 
+  paperwidth    = 210mm,
+  bindingoffset = 10mm,
+  left          = 7.5mm,
+  right         = 15mm,
+  top           = 20mm,
+  bottom        = 15mm,
+  footskip      = 5mm,
+]{geometry}
+
+\def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
+\usepackage{\repoPath/config}
+
+\newcommand{\padfour}[1]{%
+  \ifnum#1<10 000\fi%
+  \ifnum#1<100 \ifnum#1>9 00\fi\fi%
+  \ifnum#1<1000 \ifnum#1>99 0\fi\fi%
+  #1%
+}
+
+\begin{document}
+  \workbookTitlePage[%
+    title  = {%
+      \vspace*{6cm}
+      \fontsize{40}{40}\selectfont
+      \textbf{수근대사전}
+      \\
+      \vspace{1cm}
+      \scshape\fontsize{36}{36}\selectfont
+      sugundaesajeon
+    },
+  ]
+  
+  \setcounter{page}{1}
+
+  % \chapter{Problemas Locais}
+
+  % \foreach \i in {1,2,...,2476}{
+  %   \edef\paddedi{\padfour{\i}}%
+  %   \problemDiagram[%
+  %     problem size              = 7.25,
+  %     path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
+  %     problem text              =,
+  %     caption horizontal margin = -0.1cm,
+  %     horizontal clip start     = 7,
+  %     horizontal clip end       = 19,
+  %     vertical clip start       = 1,
+  %     vertical clip end         = 19,
+  %   ]%
+  % }%
+  % \hspace*{-\fill}%
+  
+  \chapter{Problemas Globais}
+
+  \foreach \i in {2477,2478,...,2500}{
+    \edef\paddedi{\padfour{\i}}%
+    \problemDiagram[%
+      problem size              = 6.5,
+      path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
+      problem text              =,
+      caption horizontal margin = -0.1cm,
+      horizontal clip start     = 1,
+      horizontal clip end       = 19,
+      vertical clip start       = 1,
+      vertical clip end         = 19,
+    ]%
+  }%
+  \hspace*{-\fill}%
+
+\end{document}
