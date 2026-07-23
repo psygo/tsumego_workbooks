@@ -1,6 +1,18 @@
 %-----------------------------------------------------------
 % Fonts
 
+\usepackage{silence}
+% Benign version-compatibility notice: luatexja's microtype patch checks
+% microtype's internal version string and warns if it doesn't recognize it,
+% even though protrusion/expansion still work correctly with this TeX Live.
+\WarningFilter{luatexja}{LuaTeX-ja's patch against the microtype package}
+% Benign auto-substitution notice: luatexja pairs the current Latin font
+% series with a matching Japanese-font series (used by goban's stone-number
+% labels via \textsb); the Japanese fonts have no "sb" shape, so luatexja
+% substitutes bold automatically. The labels themselves are plain Latin
+% digits/letters and are unaffected.
+\WarningFilter{latexfont}{Font shape}
+
 \usepackage{iftex}
 \usepackage[T1]{fontenc}
 
@@ -27,9 +39,19 @@
 \ifluatex
   \usepackage{luatexja}
   \usepackage{luatexja-fontspec}
-  % \usepackage{kotex}
-  \newjfontfamily\haranoaji[BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
   \newjfontfamily\hangul[BoldFont=UnBatangBold.ttf]{UnBatang.ttf}
+  % \usepackage{kotex}
+
+  \newjfontfamily\haranoaji[BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
+  \newjfontfamily\haranoajigothic[BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
+
+  % macOS-only fonts (not portable to other machines/CI) --- for cover trials only
+  \newjfontfamily\hiraginomincho[BoldFont={Hiragino Mincho ProN:style=W6}]{Hiragino Mincho ProN}
+  \newjfontfamily\hiraginosans[BoldFont=Hiragino Sans W6]{Hiragino Sans W3}
+  \newjfontfamily\hiraginomaru{Hiragino Maru Gothic ProN}
+
+  % Default (main) Japanese font --- macOS-only, see note above
+  \setmainjfont[BoldFont={Hiragino Mincho ProN:style=W6}]{Hiragino Mincho ProN}
 \else\ifxetex
   \usepackage{xeCJK}
   \setCJKmainfont{UnBatang.ttf}[BoldFont=UnBatangBold.ttf]
