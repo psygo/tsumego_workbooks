@@ -27,8 +27,9 @@
 \ifluatex
   \usepackage{luatexja}
   \usepackage{luatexja-fontspec}
-  \usepackage{kotex}
+  % \usepackage{kotex}
   \newjfontfamily\haranoaji[BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
+  \newjfontfamily\hangul[BoldFont=UnBatangBold.ttf]{UnBatang.ttf}
 \else\ifxetex
   \usepackage{xeCJK}
   \setCJKmainfont{UnBatang.ttf}[BoldFont=UnBatangBold.ttf]
@@ -104,6 +105,13 @@
   {\bfseries\fontsize{18}{18}\selectfont}
   {\titlerule*[1pc]{.}\bfseries\fontsize{16}{16}\selectfont\contentspage}
   [\addvspace{0.35cm}]
+\titlecontents{section}
+  [1.9cm]
+  {}
+  {\bfseries\fontsize{15}{15}\selectfont\contentslabel{1.5em}}
+  {\bfseries\fontsize{15}{15}\selectfont}
+  {\titlerule*[1pc]{.}\bfseries\fontsize{15}{15}\selectfont\contentspage}
+  [\addvspace{0.8cm}]
 
 %-----------------------------------------------------------
 % Page Header
