@@ -3,57 +3,63 @@
   
   \scshape % Small Caps
 
-  \vspace*{-1.6cm}
+  \vspace*{-1.7cm}
   
   %---------------------------------------------------------
   % Título
   
   \coverRuler
   
-  \vspace{0.5\baselineskip}
+  \vspace{0.25cm}
   
-  \huge{Enciclopédia de Tesujis}\\
-  \Large{手筋大事典}\\
-  \Large{수근대사전}
+  \fontsize{40}{40}\selectfont Enciclopédia de Tesujis\\
+  \vspace{0.5cm}
+  \fontsize{28}{28}\selectfont \haranoaji \textbf{手筋大事典}\\
 
-  \vspace{0.275\baselineskip}
+  \vspace{0.25cm}
   
   \coverRuler
 
   %---------------------------------------------------------
 
-  \vspace*{-0.42cm}
+  \vspace*{0.1cm}
 
   %---------------------------------------------------------
   % Imagem
   
+  % Problems referenced from [BIBA's version of Sugeundaesajeon](https://drive.google.com/drive/u/0/folders/1Q1fn1AFVREjaRw8tfTz8tj_qZ1EkfIyp).
+
+  % - Top-left: pg. 2, 702
+  % - Top-right: pg. 10, 1873
+  % - Bottom-left: pg. 11, 2286
+  % - Bottom-right: pg. 16, 19
+
   \begin{figure}[h]
     \centering
     \hbox{
-      % Inside the book, this changes due to the margins
-      \hspace{1cm}
-      % \hspace{0.6cm}
-      \begin{goban}[board dimension       = 12,
+      \hspace{0.6cm}
+      \begin{goban}[board dimension       = 15,
                     board size            = 19,
                     scale                 = 1,
-                    outline line width    = 0.45mm,
+                    outline line width    = 0.55mm,
                     horizontal clip start = 1,
                     horizontal clip end   = 19,
                     vertical clip start   = 1,
                     vertical clip end     = 19]
-        \parseSgfFile{\repoPath/sgf/sugeundaesajeon/problem-0001_wrong_solution.sgf}
+        \parseSgfFile{\repoPath/sgf/sugeundaesajeon/cover.sgf}
       \end{goban}
     }
   \end{figure}
 
   %---------------------------------------------------------
   
-  \vspace*{-0.4cm}
+  \vspace*{-0.15cm}
 
   %---------------------------------------------------------
   % Autor
 
-  \Large{Philippe Fanaro}
+  \fontsize{21}{21}\selectfont edição por\\
+  \fontsize{28}{28}\selectfont Philippe Fanaro
 
   %---------------------------------------------------------
 \end{titlepage}

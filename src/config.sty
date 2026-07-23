@@ -26,7 +26,9 @@
 
 \ifluatex
   \usepackage{luatexja}
+  \usepackage{luatexja-fontspec}
   \usepackage{kotex}
+  \newjfontfamily\haranoaji[BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
 \else\ifxetex
   \usepackage{xeCJK}
   \setCJKmainfont{UnBatang.ttf}[BoldFont=UnBatangBold.ttf]
