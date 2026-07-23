@@ -25,8 +25,8 @@
 \setmainfont{Adobe Garamond Pro}
 
 \ifluatex
-  \usepackage{kotex}
   \usepackage{luatexja}
+  \usepackage{kotex}
 \else\ifxetex
   \usepackage{xeCJK}
   \setCJKmainfont{UnBatang.ttf}[BoldFont=UnBatangBold.ttf]
@@ -53,13 +53,13 @@
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
-            {\normalfont\huge\bfseries}
+            {\normalfont\bfseries\fontsize{32pt}{32pt}\selectfont}
             {\thechapter}
-            {20pt}
-            {\huge}
+            {30pt}
+            {\fontsize{32pt}{32pt}\selectfont}
 \titlespacing*{\chapter}
               {0pt}
-              {-30pt}
+              {20pt}
               {10pt}
 
 \renewcommand{\chaptermark}[1]{%
@@ -77,7 +77,7 @@
 
 \usepackage{titletoc}
 \titleformat{name=\chapter, numberless}[block]
-  {\bfseries\fontsize{24}{24}\selectfont}
+  {\bfseries\fontsize{28pt}{28pt}\selectfont}
   {}
   {0cm}
   {}
@@ -129,7 +129,7 @@
 % own override to match the size used above.
 \fancypagestyle{plain}{%
   \fancyhf{}
-  \fancyfoot[C]{\fontsize{17pt}{15pt}\selectfont\thepage}
+  \fancyfoot[C]{\fontsize{16pt}{15pt}\selectfont\thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }
