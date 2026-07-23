@@ -1,4 +1,8 @@
+% !TeX program = xelatex
 \documentclass[12pt]{book}
+
+% ----------------------------------------------------------
+% Config
 
 % A4
 \usepackage[
@@ -12,8 +16,22 @@
   footskip      = 5mm,
 ]{geometry}
 
+\usepackage[
+  colorlinks,
+  allcolors = black, 
+]{hyperref}
+
 \def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
 \usepackage{\repoPath/config}
+
+% ----------------------------------------------------------
+% Text Config
+
+\linespread{1.4}
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{1.5em}
+
+% ----------------------------------------------------------
 
 \newcommand{\padfour}[1]{%
   \ifnum#1<10 000\fi%
@@ -21,6 +39,8 @@
   \ifnum#1<1000 \ifnum#1>99 0\fi\fi%
   #1%
 }
+
+% ----------------------------------------------------------
 
 \begin{document}
   \workbookTitlePage[%
@@ -41,6 +61,20 @@
 
   \chapter{Prefácio}
   
+  \fontsize{17}{17}\selectfont
+
+  Este livro de exercícios possui como fonte a Enciclopédia de Tesuji, da Nihon Kiin (日本棋院), a Associação de Go Japonesa. Na Coreia do Sul, intitulada como Sugeundaesajeon (수근대사전), diz-se que ela foi originalmente de autoria de Segoe Kensaku 9p e um de seus alunos mais famosos, um dos maiores ícones do jogo, Go Seigen 9p. Segoe Kensaku 9p possui seu próprio dicionário de tesujis, porém não está claro se é realmente o caso de ele ter tido alguma influência na enciclopédia atual.
+  
+  É bem provável que a influência seja concreta no entanto, pois Segoe Kensaku 9p fundou o dojo mais influente de sua época, treinando jogadores que viriam a revolucionar o Go, como Hashimoto Utaro 9p, Cho Hunhyun 9p e Go Seigen 9p.
+  
+  \section*{Como Usar Este Livro}
+  
+  Livros de exercícios não possuem respostas propositalmente. O inuito é desafiar o estudante a estabelecer a melhor variação para ambos os lados.
+  
+  % TODO: História da enciclopédia
+  % TODO: Verdade que foi criado originalmente pelo Segoe Kensaku e Go Seigen?
+  % Adicionar um diagrama demonstração de como se deve resolver um problema da coleçao.
+  
   \mainmatter
   
   \setcounter{page}{1}
@@ -49,10 +83,11 @@
   
   \pagebreak
 
-  \foreach \i in {1,2,...,9}{
+  % Final problem for this section: 2476
+  \foreach \i in {1,2,...,12}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
-      problem size              = 7.25,
+      problem size              = 7,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
       problem text              =,
       caption vertical margin   = 0.1cm,
@@ -69,6 +104,7 @@
   
   \pagebreak
 
+  % Final problem for this section: 2634
   \foreach \i in {2477,2478,...,2482}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%

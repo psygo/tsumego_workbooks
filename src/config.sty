@@ -1,12 +1,13 @@
 %-----------------------------------------------------------
 % Fonts
 
+\usepackage{iftex}
 \usepackage[T1]{fontenc}
 
 \usepackage{fontspec}
 \newfontfamily\agp{Adobe Garamond Pro}
 \newfontfamily\ncm{NewCM10-Regular.otf}
-\newfontfamily\clmuni{Latin Modern Roman}[%
+\newfontfamily\clmuni{lmroman10-regular.otf}[%
   Numbers={Lining,Proportional},%
   FontFace={sb}{n}{Font=lmromandemi10-regular.otf},%
   FontFace={sb}{sl}{Font=lmromandemi10-oblique.otf},%
@@ -23,7 +24,15 @@
 % From [this comment](https://www.reddit.com/r/identifythisfont/comments/1fiahvg/comment/lngfilr/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 \setmainfont{Adobe Garamond Pro}
 
-\usepackage{kotex}
+\ifluatex
+  \usepackage{kotex}
+  \usepackage{luatexja}
+\else\ifxetex
+  \usepackage{xeCJK}
+  \setCJKmainfont{UnBatang.ttf}[BoldFont=UnBatangBold.ttf]
+  \xeCJKDeclareSubCJKBlock{Kana}{"3040 -> "309F, "30A0 -> "30FF, "31F0 -> "31FF}
+  \setCJKmainfont[Kana, BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
+\fi\fi
 
 %-----------------------------------------------------------
 % Language and Hyphenation
@@ -32,23 +41,6 @@
 \usepackage[portuguese]{babel}
 \usepackage{microtype}
 \usepackage{hyphenat}
-% \hyphenation{pa-ra}
-% \hyphenation{Bran-co}
-% \hyphenation{bran-ca}
-% \hyphenation{Pre-to}
-% \hyphenation{cri-ar}
-% \hyphenation{mor-ta}
-% \hyphenation{quan-do}
-% \hyphenation{for-ça}
-% \hyphenation{o-lho}
-% \hyphenation{mes-mo}
-% \hyphenation{can-to}
-% \hyphenation{po-de}
-% \hyphenation{as-sim}
-% \hyphenation{e-xer-cí-cios}
-% \hyphenation{al-go}
-% \hyphenation{quan-to}
-% \hyphenation{te-rá}
 
 %-----------------------------------------------------------
 % URLs
