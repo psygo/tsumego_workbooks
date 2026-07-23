@@ -1,0 +1,59 @@
+\begin{titlepage}
+  \centering
+  
+  \scshape % Small Caps
+
+  \vspace*{-1.6cm}
+  
+  %---------------------------------------------------------
+  % Título
+  
+  \coverRuler
+  
+  \vspace{0.5\baselineskip}
+  
+  \huge{Enciclopédia de Tesujis}\\
+  \Large{手筋大事典}\\
+  \Large{수근대사전}
+
+  \vspace{0.275\baselineskip}
+  
+  \coverRuler
+
+  %---------------------------------------------------------
+
+  \vspace*{-0.42cm}
+
+  %---------------------------------------------------------
+  % Imagem
+  
+  \begin{figure}[h]
+    \centering
+    \hbox{
+      % Inside the book, this changes due to the margins
+      \hspace{1cm}
+      % \hspace{0.6cm}
+      \begin{goban}[board dimension       = 12,
+                    board size            = 19,
+                    scale                 = 1,
+                    outline line width    = 0.45mm,
+                    horizontal clip start = 1,
+                    horizontal clip end   = 19,
+                    vertical clip start   = 1,
+                    vertical clip end     = 19]
+        \parseSgfFile{\repoPath/sgf/sugeundaesajeon/problem-0001_wrong_solution.sgf}
+      \end{goban}
+    }
+  \end{figure}
+
+  %---------------------------------------------------------
+  
+  \vspace*{-0.4cm}
+
+  %---------------------------------------------------------
+  % Autor
+
+  \Large{Philippe Fanaro}
+
+  %---------------------------------------------------------
+\end{titlepage}

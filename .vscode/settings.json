@@ -16,6 +16,7 @@
         "**/*.glo": true,
         "**/*.gls": true,
         "**/*.ist": true,
+        "**/dist/": true,
     },
     "editor.wordWrap": "on",
 }
