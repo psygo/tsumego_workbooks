@@ -117,12 +117,22 @@
 \fancyfoot{}
 
 \setlength{\headheight}{18.72pt}
-\setlength{\headsep}{1.1cm}
+\setlength{\headsep}{1cm}
 \renewcommand\headrulewidth{0pt}
 
 \makeatletter
 \renewcommand\chaptermark[1]{\markboth{\if@mainmatter\thechapter. \fi#1}{}}
 \makeatother
+
+% Chapter-opening pages (and the first page of \tableofcontents) use the
+% "plain" style instead of "fancy", so the page number there needs its
+% own override to match the size used above.
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\fontsize{17pt}{15pt}\selectfont\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 %-----------------------------------------------------------
 % Figures

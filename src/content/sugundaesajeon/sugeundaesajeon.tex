@@ -14,8 +14,8 @@
   left          = 7.5mm,
   right         = 15mm,
   top           = 20mm,
-  bottom        = 25mm,
-  footskip      = 5mm,
+  bottom        = 22.5mm,
+  footskip      = 6mm,
 ]{geometry}
 
 \usepackage[
@@ -155,7 +155,8 @@
   \foreach \i in {1,2,...,12}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
-      problem size              = 7,
+      problem size              = 7.35,
+      line width                = 0.32,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
       problem text              =,
       caption vertical margin   = 0.1cm,
@@ -173,11 +174,11 @@
   \pagebreak
 
   % Final problem for this section: 2634
-  \foreach \i in {2477,2478,...,2482}{
+  \foreach \i in {2477,2478,...,2484}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
-      problem size              = 7.25,
-      line width                = 0.475,
+      problem size              = 7.275,
+      line width                = 0.49,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
       problem text              =,
       caption vertical margin   = 0.2cm,
