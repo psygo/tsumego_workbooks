@@ -61,7 +61,9 @@
     path/.store in                      = \problemPath,
     path                                = sgf,
     problem text/.store in              = \problemPlayer,
-    problem text                        = 흑,
+    % "auto" reads the SGF's PL[] property (see \sgfPlayerToMove in
+    % goban/parse_sgf.sty) and shows "Preto"/"Branco" accordingly.
+    problem text                        = auto,
     caption vertical margin/.store in   = \captionVertMargin,
     caption vertical margin             = 0cm,
     caption horizontal margin/.store in = \captionHorMargin,
@@ -86,12 +88,20 @@
 \newcommand\problemDiagram[1][]{%
   \pgfkeys{/phili/problemDiagram/.cd, #1}%
   \stepcounter{problemCounter}%
+  \sgfPlayerToMove{\problemPath}%
   \noindent%
   \begin{minipage}[c]{\problemLineWidth\linewidth}
     % \hfill
     \centering
     \vspace{\captionVertMargin}
-    \problemPlayer \ \ \fontsize{13pt}{13pt}\selectfont \theproblemCounter
+    \fontsize{13pt}{13pt}\selectfont \theproblemCounter \ \
+    \IfStrEq{\problemPlayer}{auto}{%
+      \IfStrEq{\thePlayerToMove}{B}{\textit{Preto}}{%
+        \IfStrEq{\thePlayerToMove}{W}{\textit{Branco}}{}%
+      }%
+    }{%
+      \problemPlayer%
+    }%
     \hspace{\captionHorMargin}
     % \vspace{\captionVertMargin}
     \begin{goban}[board dimension       = \problemSize,

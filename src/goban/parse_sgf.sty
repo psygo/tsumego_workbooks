@@ -1,6 +1,26 @@
 % From [this answer by @StevenB.Segletes](https://tex.stackexchange.com/a/709014/64441).
 \long\def\Firstof#1#2\endFirstof{#1}
 
+\usepackage{xstring}
+
+% Reads the SGF's PL[] property (whose turn it is to move) and sets
+% \thePlayerToMove to "B", "W", or empty if the property isn't present.
+% PL isn't a drawable element like B/W/AB/AW/etc., so it's read with a
+% direct substring search rather than going through \parseSgf's
+% coordinate-based dispatch.
+\newcommand{\sgfPlayerToMove}[1]{%
+  \CatchFileDef{\sgfPlayerToMoveRaw}{#1}{}%
+  \IfSubStr{\sgfPlayerToMoveRaw}{PL[B]}{%
+    \xdef\thePlayerToMove{B}%
+  }{%
+    \IfSubStr{\sgfPlayerToMoveRaw}{PL[W]}{%
+      \xdef\thePlayerToMove{W}%
+    }{%
+      \xdef\thePlayerToMove{}%
+    }%
+  }%
+}
+
 \newcommand\thecolorofB{black}
 \newcommand\thecolorofAB{black}
 \newcommand\thecolorofW{white}

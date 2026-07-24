@@ -1,11 +1,6 @@
 % !TeX program = lualatex
 \documentclass[12pt]{book}
 
-% TODO: Back cover
-% TODO: Spine cover
-% TODO: Add link to the encyclopedia on 101weiqi to the preface
-% TODO: Add an about me section to the preface
-
 % ----------------------------------------------------------
 % Config
 
@@ -84,7 +79,7 @@
   \pagebreak
 
   % Final problem for this section: 2476
-  \foreach \i in {1,2,...,12}{
+  \foreach \i in {1,2,...,30}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
       problem size              = 7.35,
@@ -112,7 +107,7 @@
       problem size              = 7.275,
       line width                = 0.49,
       path                      = \repoPath/sgf/sugeundaesajeon/problem-\paddedi.sgf,
-      problem text              =,
+      problem text              = auto,
       caption vertical margin   = 0.2cm,
       caption horizontal margin = -0.1cm,
       horizontal clip start     = 1,
