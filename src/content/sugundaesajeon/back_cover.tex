@@ -1,0 +1,80 @@
+% !TeX program = lualatex
+\documentclass[12pt]{book}
+
+% A4
+\usepackage[
+  paperheight   = 297mm, 
+  paperwidth    = 210mm,
+  bindingoffset = 10mm,
+  left          = 7.5mm,
+  right         = 15mm,
+  top           = 20mm,
+  bottom        = 22.5mm,
+  footskip      = 6mm,
+]{geometry}
+
+\usepackage[
+  colorlinks,
+  allcolors   = black, 
+  pdfsubject  = {Go;\ Baduk;\ Weiqi},
+  pdftitle    = {Enciclopédia\ de\ Tesujis},
+  pdfauthor   = {Philippe\ Fanaro},
+  pdfkeywords = {Go;\ Baduk;\ Weiqi;\ Tsumegos},
+  pdfproducer = {LaTeX},
+  pdfcreator  = {pdflatex;\ bibtex},
+  bookmarksnumbered,
+]{hyperref}
+
+\def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
+\usepackage{\repoPath/config}
+
+\linespread{1.4}
+
+\begin{document}
+  \begin{titlepage}
+    \setlength\parindent{0ex}
+    
+    \vspace*{-2cm}
+
+    \begin{center}
+      \scshape
+
+      \fontsize{36}{36}\selectfont Enciclopédia de Tesujis\\
+
+      \vspace*{0.3cm}
+      
+      \fontsize{26}{26}\selectfont 手筋大事典\\
+      
+      \vspace*{0.2cm}
+      
+      \fontsize{24}{24}\selectfont livro de exercícios
+    \end{center}
+    
+    \vspace{0.8cm}
+
+    \fontsize{20}{20}\selectfont
+
+    Desafie-se com os exercícios que treinam os jogadores mais fortes do mundo há mais de 50 anos! Com mais de 2,600 problemas, este compêndio cobre um conjunto de técnicas que elevará o seu Go ao próximo nível.
+    
+    \begin{figure}[h]
+      \centering
+      \hbox{
+        \hspace{4cm}
+        \begin{goban}[board dimension       = 15,
+                      board size            = 19,
+                      scale                 = 1,
+                      outline line width    = 0.55mm,
+                      horizontal clip start = 9,
+                      horizontal clip end   = 19,
+                      vertical clip start   = 9,
+                      vertical clip end     = 19]
+          \parseSgfFile{\repoPath/sgf/sugeundaesajeon/back_cover.sgf}
+        \end{goban}
+      }
+    \end{figure}
+
+    \vspace{0.8cm}
+
+    Philippe Fanaro é um jogador amador \emph{dan} brasileiro, formado em engenharia elétrica pela Escola Politécnica da USP, que procura trazer mais acesso, em língua portuguesa, ao conteúdo de Go disponível em inglês e línguas asiáticas.
+  \end{titlepage}
+\end{document}

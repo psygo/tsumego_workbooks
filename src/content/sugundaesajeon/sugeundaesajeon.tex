@@ -1,10 +1,13 @@
 % !TeX program = lualatex
 \documentclass[12pt]{book}
 
+% TODO: Back cover
+% TODO: Spine cover
+% TODO: Add link to the encyclopedia on 101weiqi to the preface
+% TODO: Add an about me section to the preface
+
 % ----------------------------------------------------------
 % Config
-
-\usepackage{amsmath}
 
 % A4
 \usepackage[
@@ -39,6 +42,8 @@
 \linespread{1.4}
 \setlength{\parskip}{0.25em}
 
+\renewcommand{\_}{\leavevmode\kern.06em\vbox{\hrule width.425em}}
+
 % ----------------------------------------------------------
 
 \newcommand{\padfour}[1]{%
@@ -65,6 +70,8 @@
   \tableofcontents
   
   \input{preface.tex}
+
+  \addtocontents{toc}{\protect\addvspace{0.6cm}}
 
   \mainmatter
   
