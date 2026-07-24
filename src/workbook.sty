@@ -85,10 +85,28 @@
     %---------------------------------------------------------
 }
 
+% Board is drawn into a box before the caption is typeset (rather than
+% inline, after) so that \parseSgfFile's single parsing pass --- which sets
+% \thePlayerToMove as it reads the SGF (see goban/parse_sgf.sty) --- has
+% already run by the time the caption needs that value. This avoids reading
+% and parsing every SGF file a second time just to peek at PL[] early.
+\newsavebox\problemBoardBox
+
 \newcommand\problemDiagram[1][]{%
   \pgfkeys{/phili/problemDiagram/.cd, #1}%
   \stepcounter{problemCounter}%
-  \sgfPlayerToMove{\problemPath}%
+  \sbox{\problemBoardBox}{%
+    \begin{goban}[board dimension       = \problemSize,
+                  board size            = 19,
+                  scale                 = 1,
+                  outline line width    = 0.4mm,
+                  horizontal clip start = \horClipStartT,
+                  horizontal clip end   = \horClipEndT,
+                  vertical clip start   = \verClipStartT,
+                  vertical clip end     = \verClipEndT,]
+      \parseSgfFile{\problemPath}
+    \end{goban}%
+  }%
   \noindent%
   \begin{minipage}[c]{\problemLineWidth\linewidth}
     % \hfill
@@ -104,16 +122,7 @@
     }%
     \hspace{\captionHorMargin}
     % \vspace{\captionVertMargin}
-    \begin{goban}[board dimension       = \problemSize,
-                  board size            = 19,
-                  scale                 = 1,
-                  outline line width    = 0.4mm,
-                  horizontal clip start = \horClipStartT,
-                  horizontal clip end   = \horClipEndT,
-                  vertical clip start   = \verClipStartT,
-                  vertical clip end     = \verClipEndT,]
-      \parseSgfFile{\problemPath}
-    \end{goban}%
+    \usebox{\problemBoardBox}%
   \end{minipage}\hfill
 }
 

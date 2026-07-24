@@ -12,6 +12,11 @@
 % substitutes bold automatically. The labels themselves are plain Latin
 % digits/letters and are unaffected.
 \WarningFilter{latexfont}{Font shape}
+% Cumulative summary of the same substitutions above (e.g. also triggered by
+% \LaTeX/\TeX at non-standard sizes, since CM math fonts only have discrete
+% design sizes) --- a separate warning emission that the filter above doesn't
+% catch on its own.
+\WarningFilter{latexfont}{Size substitutions}
 
 \usepackage{iftex}
 \usepackage[T1]{fontenc}

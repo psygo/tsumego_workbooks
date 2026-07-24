@@ -3,24 +3,6 @@
 
 \usepackage{xstring}
 
-% Reads the SGF's PL[] property (whose turn it is to move) and sets
-% \thePlayerToMove to "B", "W", or empty if the property isn't present.
-% PL isn't a drawable element like B/W/AB/AW/etc., so it's read with a
-% direct substring search rather than going through \parseSgf's
-% coordinate-based dispatch.
-\newcommand{\sgfPlayerToMove}[1]{%
-  \CatchFileDef{\sgfPlayerToMoveRaw}{#1}{}%
-  \IfSubStr{\sgfPlayerToMoveRaw}{PL[B]}{%
-    \xdef\thePlayerToMove{B}%
-  }{%
-    \IfSubStr{\sgfPlayerToMoveRaw}{PL[W]}{%
-      \xdef\thePlayerToMove{W}%
-    }{%
-      \xdef\thePlayerToMove{}%
-    }%
-  }%
-}
-
 \newcommand\thecolorofB{black}
 \newcommand\thecolorofAB{black}
 \newcommand\thecolorofW{white}
@@ -42,8 +24,14 @@
 \newcommand\thekeytypeofTR{T} % triangle label
 \newcommand\thekeytypeofSQ{S} % square label
 \newcommand\thekeytypeofLB{L} % text label
+\newcommand\thekeytypeofPL{P} % player to move (captured, not drawn)
+
+% Set by \parseSgf when it encounters a PL[] property: "B", "W", or empty
+% if the SGF has no PL property at all.
+\newcommand\thePlayerToMove{}
 
 \newcommand{\parseSgf}[1]{%
+  \gdef\thePlayerToMove{}%
   \setsepchar{(||)/;/]/[/:}%
   \readlist*\Z{#1}%
 
@@ -81,7 +69,10 @@
         \expandafter\squareLabel\tmp
         \fi
         \if\Keytypeof\KeyName L
-        \expandafter\textLabel\tmp{\Z[\Branchcnt, \Groupcnt, \Keycnt, 2, 2]} 
+        \expandafter\textLabel\tmp{\Z[\Branchcnt, \Groupcnt, \Keycnt, 2, 2]}
+        \fi
+        \if\Keytypeof\KeyName P
+        \xdef\thePlayerToMove{\KeyValue}%
         \fi
         \fi
       }
