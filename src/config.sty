@@ -24,6 +24,7 @@
 \usepackage{fontspec}
 \newfontfamily\agp{Adobe Garamond Pro}
 \newfontfamily\ncm{NewCM10-Regular.otf}
+\newfontfamily\ncmsans[BoldFont=NewCMSans10-Bold.otf]{NewCMSans10-Regular.otf}
 \newfontfamily\clmuni{lmroman10-regular.otf}[%
   Numbers={Lining,Proportional},%
   FontFace={sb}{n}{Font=lmromandemi10-regular.otf},%
@@ -77,6 +78,11 @@
 % URLs
 
 \usepackage{xurl}
+\renewcommand{\UrlFont}{\ncmsans}
+% \path (unlike \url) hardcodes \urlstyle{tt} into its own definition, so it
+% resets \UrlFont to typewriter on every call regardless of the line above.
+% Redeclaring it with our own font setting is the only way to override that.
+\DeclareUrlCommand\path{\def\UrlFont{\agp}}
 
 %-----------------------------------------------------------
 % Chapter and Part Titles
