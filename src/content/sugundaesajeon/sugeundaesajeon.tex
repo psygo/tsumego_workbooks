@@ -56,9 +56,10 @@
 % ----------------------------------------------------------
 
 \begin{document}
-  \input{cover.tex}
-
   \blankpage
+  \blankpage
+
+  \input{cover.tex}
 
   \frontmatter
 
@@ -79,7 +80,7 @@
   \pagebreak
 
   % Final problem for this section: 2476
-  \foreach \i in {1,2,...,30}{
+  \foreach \i in {1,2,...,2476}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
       problem size              = 7.35,
@@ -101,7 +102,7 @@
   \pagebreak
 
   % Final problem for this section: 2634
-  \foreach \i in {2477,2478,...,2500}{
+  \foreach \i in {2477,2478,...,2634}{
     \edef\paddedi{\padfour{\i}}%
     \problemDiagram[%
       problem size              = 7.275,
