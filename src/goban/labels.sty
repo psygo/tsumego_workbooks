@@ -149,6 +149,34 @@
   }
 }
 
+\newcommand{\circleLabel}[2]{
+  \setCoords{#2}
+  
+  \pgfmathsetmacro{\xCoord}{\x * \step}
+  \pgfmathsetmacro{\yCoord}{\y * \step}
+
+  \pgfmathsetmacro{\yCoordLabelBackgroundShifted}{(\y * \step) + 0.000475cm}
+
+  \draw (\xCoord, \yCoordLabelBackgroundShifted) [
+    fill      = \StoneColor{#2},
+    draw      = \StoneColor{#2},
+    inner sep = 0pt,
+  ] 
+    circle [radius = \stoneRadius * 0.6375cm];
+
+  \pgfmathsetmacro{\yCoordLabelShifted}{(\y * \step) - 0.0001cm}
+
+  \draw (\xCoord, \yCoordLabelShifted) 
+    node[
+      draw         = #1,
+      color        = -\StoneColor{#2},
+      fill         = \StoneColor{#2},
+      line width   = \stoneRadius * 1.55mm,
+      minimum size = \stoneRadius * 0.87cm,
+      inner sep    = 0pt,
+    ] {};
+}
+
 \newcommand{\crossLabel}[2]{
   \setCoords{#2}
 
