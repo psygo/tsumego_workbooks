@@ -166,13 +166,14 @@
 
   \pgfmathsetmacro{\yCoordLabelShifted}{(\y * \step) - 0.0001cm}
 
-  \draw (\xCoord, \yCoordLabelShifted) 
+  \draw (\xCoord, \yCoordLabelShifted)
     node[
+      circle,
       draw         = #1,
       color        = -\StoneColor{#2},
       fill         = \StoneColor{#2},
       line width   = \stoneRadius * 1.55mm,
-      minimum size = \stoneRadius * 0.87cm,
+      minimum size = \stoneRadius * 1cm,
       inner sep    = 0pt,
     ] {};
 }
