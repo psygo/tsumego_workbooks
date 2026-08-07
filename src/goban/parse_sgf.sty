@@ -51,7 +51,14 @@
         \edef\tmp{{\csname thecolorof\KeyName\endcsname}{\KeyValue}}%
 
         \if\Keytypeof\KeyName M
+        \ifnum\upToMove<0
         \expandafter\drawMoveFromSgfCoords\tmp
+        \else
+        \ifnum\themoveCounter>\upToMove
+        \else
+        \expandafter\drawMoveFromSgfCoords\tmp
+        \fi
+        \fi
         \fi
         \if\Keytypeof\KeyName A
         \expandafter\drawStoneFromSgfCoords\tmp

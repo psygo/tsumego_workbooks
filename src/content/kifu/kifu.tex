@@ -1,0 +1,34 @@
+
+\documentclass[12pt]{standalone}
+
+\usepackage{fontspec}
+\newfontfamily\clmuni{Latin Modern Roman}[%
+  Numbers={Lining,Proportional},%
+  FontFace={sb}{n}{Font=lmromandemi10-regular.otf},%
+  FontFace={sb}{sl}{Font=lmromandemi10-oblique.otf},%
+]
+
+\makeatletter
+\DeclareRobustCommand{\sbweight}{%
+  \not@math@alphabet\sbweight\relax
+  \fontseries{sb}\selectfont
+}
+\makeatother
+\DeclareTextFontCommand{\textsb}{\sbweight}
+
+\def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
+\usepackage{\repoPath/goban/goban}
+
+\begin{document}
+  \begin{goban}[board dimension       = 16.675,
+                board size            = 19,
+                scale                 = 1,
+                outline line width    = 0.55mm,
+                horizontal clip start = 1,
+                horizontal clip end   = 19,
+                vertical clip start   = 1,
+                vertical clip end     = 19,
+                up to move            = 82]
+    \parseSgfFile{\repoPath/sgf/kifu/nine_dragons_pearl.sgf}
+  \end{goban}
+\end{document}

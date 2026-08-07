@@ -22,6 +22,7 @@
     split line width             = 0mm,
     split line style/.store in   = \splitLineStyle,
     split line style             = dotted,
+    %-------------------------------------------------------
   %---------------------------------------------------------
   /phili/goban/.search also={/phili/goGrid},
   /phili/goban/.cd,  
@@ -29,6 +30,8 @@
     % Scale
     scale/.store in              = \scale,
     scale                        = 1,
+    up to move/.store in            = \upToMove,
+    up to move                      = -1,
     %-------------------------------------------------------
     % Partial Boards
     horizontal clip start/.store in = \horClipStart,
@@ -39,6 +42,7 @@
     vertical clip start             = -1,
     vertical clip end/.store in     = \verClipEnd, % This is more like the height?
     vertical clip end               = -1,
+    %-------------------------------------------------------
   %---------------------------------------------------------
 }
 
