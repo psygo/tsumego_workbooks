@@ -81,6 +81,68 @@
   \gameInfoField{0.24\linewidth}{Tempo:}%
 }
 
+% For recording moves that can't be shown on the diagram itself --- a stone
+% captured and then played again later at the same point, moves beyond the
+% goban's "up to move" cutoff, etc. --- as text instead (e.g. "58 -> P7").
+% #1 (default 4) sets how many blank ruled rows to draw.
+\newcommand{\notesRowHeight}{0.5cm}
+
+\newcommand{\notesSection}[1][4]{%
+  \vspace{0.3cm}
+  \noindent Notas:
+
+  \vspace{0.1cm}
+  \noindent
+  \hrulefill \\
+  \hrulefill \\
+  \hrulefill
+}
+
+% One blank record page (info sheet + board + notes) per iteration, repeated
+% for a chapter. board size also sets the clip end, so the board is never
+% clipped to some other size's coordinate range (see the "phantom bounding
+% box" bug this caused before --- clip end must always match board size).
+\pgfkeys{%
+  /phili/kifuChapterPages/.cd,
+    board dimension/.store in = \kifuBoardDimension,
+    board dimension           = 14,
+    board size/.store in      = \kifuBoardSize,
+    board size                = 19,
+    iterations/.store in      = \kifuIterations,
+    iterations                = 3,
+}
+
+\newcommand{\kifuChapterPages}[1][]{%
+  \pgfkeys{/phili/kifuChapterPages/.cd, #1}%
+  \foreach \i in {1,...,\kifuIterations}{
+    \pagebreak
+
+    \gameInfoSheet
+
+    \vspace{0.8cm}
+
+    \hbox{
+      \begin{goban}[board dimension       = \kifuBoardDimension,
+                    board size            = \kifuBoardSize,
+                    scale                 = 1,
+                    outline line width    = 0.55mm,
+                    horizontal clip start = 1,
+                    horizontal clip end   = \kifuBoardSize,
+                    vertical clip start   = 1,
+                    vertical clip end     = \kifuBoardSize,
+                    hoshi size            = 0.55,
+                    coordinates           = true,
+                    coordinates font size = 6.5,
+                    coordinates sides     = {top,bottom,left,right}]
+      \end{goban}
+    }
+
+    \vspace{0.3cm}
+
+    \notesSection
+  }
+}
+
 % ----------------------------------------------------------
 
 \begin{document}
@@ -162,34 +224,29 @@
   \mainmatter
   
   \chapter{9×9}
-  
-  \foreach \i in {1,2,...,3}{
-    \pagebreak
-    
-    \vspace*{0.2cm}
 
-    \gameInfoSheet
-
-    \vspace*{-17cm}
-
-    \hbox{
-      \hspace{0.1cm}
-      \begin{goban}[board dimension       = 14,
-                    board size            = 9,
-                    scale                 = 1,
-                    outline line width    = 0.55mm,
-                    horizontal clip start = 1,
-                    horizontal clip end   = 19,
-                    vertical clip start   = 1,
-                    vertical clip end     = 19,
-                    coordinates           = true,
-                    coordinates font size = 6.5,
-                    coordinates sides     = {top,bottom,left,right}]
-      \end{goban}
-    }
-  }
+  \kifuChapterPages[%
+    board dimension = 14,
+    board size      = 9,
+    iterations      = 3,
+  ]%
 
   \chapter{13×13}
 
+  \kifuChapterPages[%
+    board dimension = 15,
+    board size      = 13,
+    iterations      = 3
+  ]%
+
   \chapter{19×19}
+
+  \kifuChapterPages[%
+    board dimension = 15.5,
+    board size      = 19,
+    iterations      = 3
+  ]
+  
+  \blankpage
+  \blankpage
 \end{document}

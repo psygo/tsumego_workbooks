@@ -25,6 +25,10 @@
     split line style/.store in   = \splitLineStyle,
     split line style             = dotted,
     %-------------------------------------------------------
+    % Hoshis
+    hoshi size/.store in         = \hoshiSizeMultiplier,
+    hoshi size                   = 1,
+    %-------------------------------------------------------
     % Coordinates
     coordinates/.store in        = \showCoordinates,
     coordinates                  = false,
@@ -154,7 +158,7 @@
 % Example: A 19x19 board with size 10cm x 10cm: `\drawHoshis`
 \newcommand{\drawHoshis}{
   \tikzmath{
-    \hoshiRadius = \step * 0.125;
+    \hoshiRadius = \step * 0.125 * \hoshiSizeMultiplier;
     %
     \centerHoshi = ceil(\boardSize / 2);
     %
