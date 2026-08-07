@@ -1,3 +1,5 @@
+\usepackage{xstring}
+
 \newcommand{\calculateStep}{
   \pgfmathsetmacro{\step}{\boardDimension / (\boardSize - 1)} % chktex 1
 }
@@ -22,6 +24,19 @@
     split line width             = 0mm,
     split line style/.store in   = \splitLineStyle,
     split line style             = dotted,
+    %-------------------------------------------------------
+    % Coordinates
+    coordinates/.store in        = \showCoordinates,
+    coordinates                  = false,
+    coordinates font size/.store in = \coordFontSizeMultiplier,
+    coordinates font size            = 3.25,
+    % A font-weight-switching command, e.g. \sbweight (this package's own
+    % semibold, matching the weight \textLabel uses for move numbers) or
+    % \bfseries. Empty (the default) leaves \clmuni's own regular weight.
+    coordinates font weight/.store in = \coordFontWeight,
+    coordinates font weight            = ,
+    coordinates sides/.code      = {\StrSubstitute{#1}{ }{}[\coordSides]},
+    coordinates sides            = {top,left,right},
     %-------------------------------------------------------
   %---------------------------------------------------------
   /phili/goban/.search also={/phili/goGrid},
@@ -70,6 +85,56 @@
   \boardOutline{\boardDimension}
 
   \drawHoshis
+}
+
+% Standard Go coordinate letters: A-T, skipping I (to avoid confusion with
+% the numeral 1). Covers boards up to 19x19.
+\newcommand{\goCoordLetters}{ABCDEFGHJKLMNOPQRST}
+
+% Column letters above/below the top/bottom edges, row numbers along the
+% left/right edges (1 at the bottom row, growing upward --- matching the
+% board's own tikz y-axis directly, since row 1 sits at y=0). Which edges
+% actually get labels is controlled by the `coordinates sides` key.
+\newcommand{\drawCoordinates}{
+  \pgfmathsetmacro{\coordOffset}{\step * 0.575}
+  \pgfmathsetmacro{\coordFontSize}{\step * \coordFontSizeMultiplier}
+
+  \clmuni
+  \coordFontWeight
+
+  \IfSubStr{,\coordSides,}{,top,}{
+    \foreach \i in {1,...,\boardSize}{
+      \pgfmathsetmacro{\colCoord}{(\i - 1) * \step}
+      \StrChar{\goCoordLetters}{\i}[\colLetter]
+      \node[font = \fontsize{\coordFontSize}{9pt}\selectfont]
+        at (\colCoord, \boardDimension + \coordOffset) {\colLetter};
+    }
+  }{}
+
+  \IfSubStr{,\coordSides,}{,bottom,}{
+    \foreach \i in {1,...,\boardSize}{
+      \pgfmathsetmacro{\colCoord}{(\i - 1) * \step}
+      \StrChar{\goCoordLetters}{\i}[\colLetter]
+      \node[font = \fontsize{\coordFontSize}{9pt}\selectfont]
+        at (\colCoord, -\coordOffset) {\colLetter};
+    }
+  }{}
+
+  \IfSubStr{,\coordSides,}{,left,}{
+    \foreach \j in {1,...,\boardSize}{
+      \pgfmathsetmacro{\rowCoord}{(\j - 1) * \step}
+      \node[font = \fontsize{\coordFontSize}{9pt}\selectfont]
+        at (-\coordOffset, \rowCoord) {\j};
+    }
+  }{}
+
+  \IfSubStr{,\coordSides,}{,right,}{
+    \foreach \j in {1,...,\boardSize}{
+      \pgfmathsetmacro{\rowCoord}{(\j - 1) * \step}
+      \node[font = \fontsize{\coordFontSize}{9pt}\selectfont]
+        at (\boardDimension + \coordOffset, \rowCoord) {\j};
+    }
+  }{}
 }
 
 % Reference: [Drawing a Non-Jagged Grid Outline](https://tex.stackexchange.com/q/709298/64441)

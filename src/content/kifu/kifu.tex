@@ -134,12 +134,12 @@
   
   \chapter{9×9}
   
-  \foreach \i in {1,2,...,10}{
+  \foreach \i in {1,2,...,3}{
     \pagebreak
 
     \vspace*{-15cm}
     \hbox{
-      \hspace{1cm}
+      \hspace{0.2cm}
       \begin{goban}[board dimension       = 14,
                     board size            = 9,
                     scale                 = 1,
@@ -147,7 +147,10 @@
                     horizontal clip start = 1,
                     horizontal clip end   = 19,
                     vertical clip start   = 1,
-                    vertical clip end     = 19]
+                    vertical clip end     = 19,
+                    coordinates           = true,
+                    coordinates font size = 6.5,
+                    coordinates sides     = {top,bottom,left,right}]
       \end{goban}
     }
   }

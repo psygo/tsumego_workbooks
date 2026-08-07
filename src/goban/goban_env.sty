@@ -17,6 +17,10 @@
   }
 }
 
+% The clip only wraps the grid/split-line/stones (opened here, closed in the
+% environment's "after" code below) --- coordinate labels are drawn once it's
+% closed, so they're never at risk of being cropped by a partial-board clip
+% rectangle sized for the board itself, regardless of their font size.
 \newenvironment{goban}[1][]{
   \pgfkeys{/phili/goban/.cd, #1}
 
@@ -24,14 +28,19 @@
                       transform shape]
     \calculateStep
 
+    \begin{scope}
     \partialBoardClipping
-    
+
     \draw[\splitLineStyle,
-          line width = \splitLineWidth] 
+          line width = \splitLineWidth]
       (0, 0) -- (\boardDimension, \boardDimension);
 
     \goGrid
 }{
+    \end{scope}
+
+    \ifthenelse{\equal{\showCoordinates}{true}}{\drawCoordinates}{}
+
     \setcounter{moveCounter}{1}
   \end{tikzpicture}
 }
