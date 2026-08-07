@@ -1,34 +1,158 @@
+\documentclass[12pt]{book}
 
-\documentclass[12pt]{standalone}
+% ----------------------------------------------------------
+% Config
 
-\usepackage{fontspec}
-\newfontfamily\clmuni{Latin Modern Roman}[%
-  Numbers={Lining,Proportional},%
-  FontFace={sb}{n}{Font=lmromandemi10-regular.otf},%
-  FontFace={sb}{sl}{Font=lmromandemi10-oblique.otf},%
-]
+% A4
+\usepackage[
+  paperheight   = 297mm, 
+  paperwidth    = 210mm,
+  bindingoffset = 10mm,
+  left          = 7.5mm,
+  right         = 15mm,
+  top           = 20mm,
+  bottom        = 22.5mm,
+  footskip      = 6mm,
+]{geometry}
 
-\makeatletter
-\DeclareRobustCommand{\sbweight}{%
-  \not@math@alphabet\sbweight\relax
-  \fontseries{sb}\selectfont
-}
-\makeatother
-\DeclareTextFontCommand{\textsb}{\sbweight}
+\usepackage[
+  colorlinks,
+  allcolors   = black, 
+  pdfsubject  = {Go;\ Baduk;\ Weiqi},
+  pdftitle    = {Kifu\ 棋譜},
+  pdfauthor   = {Philippe\ Fanaro},
+  pdfkeywords = {Go;\ Baduk;\ Weiqi;\ Tsumegos},
+  pdfproducer = {LaTeX},
+  pdfcreator  = {pdflatex;\ bibtex},
+  bookmarksnumbered,
+]{hyperref}
 
 \def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
-\usepackage{\repoPath/goban/goban}
+\usepackage{\repoPath/config}
+
+% ----------------------------------------------------------
+% Text Config
+
+\linespread{1.4}
+\setlength{\parskip}{0.25em}
+
+\renewcommand{\_}{\leavevmode\kern.06em\vbox{\hrule width.425em}}
+
+% ----------------------------------------------------------
+
+\newcommand{\padfour}[1]{%
+  \ifnum#1<10 000\fi%
+  \ifnum#1<100 \ifnum#1>9 00\fi\fi%
+  \ifnum#1<1000 \ifnum#1>99 0\fi\fi%
+  #1%
+}
+
+\newcommand{\coverRuler}{
+  \rule{0.97\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+  \rule{0.97\textwidth}{0.4pt}
+}
+
+% ----------------------------------------------------------
 
 \begin{document}
-  \begin{goban}[board dimension       = 16.675,
-                board size            = 19,
-                scale                 = 1,
-                outline line width    = 0.55mm,
-                horizontal clip start = 1,
-                horizontal clip end   = 19,
-                vertical clip start   = 1,
-                vertical clip end     = 19,
-                up to move            = 82]
-    \parseSgfFile{\repoPath/sgf/kifu/nine_dragons_pearl.sgf}
-  \end{goban}
+  % \blankpage
+  % \blankpage
+  
+  \begin{titlepage}
+    \centering
+    
+    \scshape % Small Caps
+
+    \vspace*{-2cm}
+    
+    %---------------------------------------------------------
+    % Título
+    
+    \rule{0.97\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{0.97\textwidth}{0.4pt}
+    
+    \vspace{0.1cm}
+    
+    \fontsize{40}{40}\selectfont Kifu\\
+    \vspace{0.5cm}
+    \fontsize{30}{30}\selectfont 棋譜\\
+
+    \vspace{-0.3cm}
+    
+    \rule{0.97\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace*{3pt}
+    \rule{0.97\textwidth}{1.6pt}
+
+    %---------------------------------------------------------
+
+    \vspace*{0.1cm}
+
+    %---------------------------------------------------------
+    % Imagem
+    
+    % A partida histórica entre Shi Xiangxia (Branco) e Cheng Lanru (Preto) do século XVIII, "Nine Dragons Playing with a Pearl".
+
+    \begin{figure}[h]
+      \centering
+      \hbox{
+        \hspace{1.125cm}
+        \begin{goban}[board dimension       = 14,
+                      board size            = 19,
+                      scale                 = 1,
+                      outline line width    = 0.55mm,
+                      horizontal clip start = 1,
+                      horizontal clip end   = 19,
+                      vertical clip start   = 1,
+                      vertical clip end     = 19,
+                      up to move            = 82]
+          \parseSgfFile{\repoPath/sgf/kifu/nine_dragons_pearl.sgf}
+        \end{goban}
+      }
+    \end{figure}
+
+    %---------------------------------------------------------
+    
+    \vspace*{-0.15cm}
+
+    %---------------------------------------------------------
+    % Autor
+
+    \fontsize{21}{21}\selectfont edição por\\
+    \fontsize{28}{28}\selectfont Philippe Fanaro
+
+    %---------------------------------------------------------
+  \end{titlepage}
+
+  \frontmatter
+
+  \tableofcontents
+
+  \chapter{Prefácio}
+
+  \fontsize{16}{16}\selectfont
+
+  \mainmatter
+  
+  \chapter{9×9}
+  
+  \foreach \i in {1,2,...,10}{
+    \pagebreak
+
+    \vspace*{-15cm}
+    \hbox{
+      \hspace{1cm}
+      \begin{goban}[board dimension       = 14,
+                    board size            = 9,
+                    scale                 = 1,
+                    outline line width    = 0.55mm,
+                    horizontal clip start = 1,
+                    horizontal clip end   = 19,
+                    vertical clip start   = 1,
+                    vertical clip end     = 19]
+      \end{goban}
+    }
+  }
+
+  \chapter{13×13}
+
+  \chapter{19×19}
 \end{document}
