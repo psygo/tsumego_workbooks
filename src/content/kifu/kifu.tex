@@ -95,21 +95,21 @@
   \noindent
   \hrulefill \\
   \hrulefill \\
-  \hrulefill
+  \hrulefill \\
 }
 
-% One blank record page (info sheet + board + notes) per iteration, repeated
-% for a chapter. board size also sets the clip end, so the board is never
-% clipped to some other size's coordinate range (see the "phantom bounding
-% box" bug this caused before --- clip end must always match board size).
 \pgfkeys{%
   /phili/kifuChapterPages/.cd,
-    board dimension/.store in = \kifuBoardDimension,
-    board dimension           = 14,
-    board size/.store in      = \kifuBoardSize,
-    board size                = 19,
-    iterations/.store in      = \kifuIterations,
-    iterations                = 3,
+    board dimension/.store in       = \kifuBoardDimension,
+    board dimension                 = 14,
+    board size/.store in            = \kifuBoardSize,
+    board size                      = 19,
+    coordinates font size/.store in = \kifuCoordinatesFontSizeMultiplier,
+    coordinates font size           = 6.5,
+    horizontal shift/.store in      = \kifuHorizontalShift,
+    horizontal shift                = 0cm,
+    iterations/.store in            = \kifuIterations,
+    iterations                      = 3,
 }
 
 \newcommand{\kifuChapterPages}[1][]{%
@@ -122,6 +122,7 @@
     \vspace{0.8cm}
 
     \hbox{
+      \hspace{\kifuHorizontalShift}
       \begin{goban}[board dimension       = \kifuBoardDimension,
                     board size            = \kifuBoardSize,
                     scale                 = 1,
@@ -132,12 +133,12 @@
                     vertical clip end     = \kifuBoardSize,
                     hoshi size            = 0.55,
                     coordinates           = true,
-                    coordinates font size = 6.5,
+                    coordinates font size = \kifuCoordinatesFontSizeMultiplier,
                     coordinates sides     = {top,bottom,left,right}]
       \end{goban}
     }
 
-    \vspace{0.3cm}
+    \vspace{0.2cm}
 
     \notesSection
   }
@@ -162,11 +163,13 @@
     \rule{0.97\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
     \rule{0.97\textwidth}{0.4pt}
     
-    \vspace{0.1cm}
+    \vspace{-0.2cm}
     
     \fontsize{40}{40}\selectfont Kifu\\
-    \vspace{0.5cm}
+    \vspace{0.4cm}
     \fontsize{30}{30}\selectfont 棋譜\\
+    \vspace{0.4cm}
+    \fontsize{25}{25}\selectfont registro de partidas
 
     \vspace{-0.3cm}
     
@@ -185,8 +188,8 @@
     \begin{figure}[h]
       \centering
       \hbox{
-        \hspace{1.125cm}
-        \begin{goban}[board dimension       = 14,
+        \hspace{0.525cm}
+        \begin{goban}[board dimension       = 15,
                       board size            = 19,
                       scale                 = 1,
                       outline line width    = 0.55mm,
@@ -220,31 +223,85 @@
   \chapter{Prefácio}
 
   \fontsize{16}{16}\selectfont
+  
+  Registrar partidas é uma prática essencial para um jogador de Go. Serve não somente como método de estudo mas também como arquivação de memórias únicas.
+
+  O \textit{kifu} (棋譜) mais antigo conhecido é o do duplo-quebra escadas, em que um príncipe japonês desafiou o melhor jogador chinês da época, em uma viagem diplomática. Há poucos detalhes certos sobre a partida, mas o registro sobreviveu no livro escrito de Go mais antigo disponível ainda, o Wangyou Qingle Ji (忘憂清樂集), do século XI, da dinastia Song.
+  
+  \vspace{-0.3cm}
+  
+  \begin{figure}[h]
+    \centering
+    \hbox{
+      \hspace{1.35cm}
+      \begin{goban}[board dimension       = 13.5,
+                    board size            = 19,
+                    scale                 = 1,
+                    outline line width    = 0.55mm,
+                    horizontal clip start = 1,
+                    horizontal clip end   = 19,
+                    vertical clip start   = 1,
+                    vertical clip end     = 19]
+        \parseSgfFile{\repoPath/sgf/kifu/double_ladder_breaker_numbers.sgf}
+      \end{goban}
+    }
+  \end{figure}
+
+  Naquela era, as partidas começavam com 4-4 alternados, e Branco era quem começava. Reza a lenda que foi dito ao representante japonês que o seu oponente chinês era na verade o segundo melhor chinês, o que não era verdade, mas que instigou a suposta fala do príncipe: ``O melhor jogador do pequeno reino não consegue ganhar nem sequer do segundo melhor do grande reino!''
+  
+  Se a citação é verdadeira, jamais saberemos, porém também se diz que Preto teve sua quantia de dificuldades. Representar a China em uma era de honra não é fácil, e talvez consequências graves, senão morte, para um jogo ruim seguiriam tanto para o jogador quanto para sua família. Diz-se que Wang Jixin ou Gu Shiyan --- não se sabe ao certo quem foi que jogou --- suava e tremia enquanto jogava, até encontrar o movimento final brilhante e miraculoso.
+  
+  Em registros de partidas, tipicamente, Preto é notado com números, e Branco, com números e círculos. Caso estejam disponíveis canetas multicores, o contraste pode também ajudar. Livros de kifus são inerentemente ferramentas individuais, e cada jogador desenvolverá seu próprio sistema e estilo, mas é útil seguir certas convenções.
+  
+  A partida da capa é outro ícone histórico do Go, intitulada de ``Nove Dragões Brincando com uma Pérola'', do século XVIII, entre Shi Xiangxia (Branco) e Cheng Lanru (Preto). Até hoje, os chinese são famosos por suas habilidades de luta, e esta partida talvez seja um de seus maiores símbolos. Em poucos movimentos, ambos os jogadores criam nove ou mais dragões, através de movimentos de grande maestria de forma, em posições que desafiam desde profissionais até mesmo as IAs atuais.
+  
+  Até hoje, \textit{inseis}, ou aprendizes de profissionais são incentivados a registrar suas partidas, como parte do método de treinamento, e também da vida profissional e disciplinada.
+
+  Com ferramentas digitais e IA facilmente disponíveis, sugere-se utilizar o que for mais conveniente e puder solidificar melhor o hábito. Mas papel e caneta terão ainda seu espaço, uma vez que o registro manual nos faz pensar mais a cada movimento, além de ser mais permanente e custoso.
+  
+  Em torneios, devido a potenciais trapaças, é comum a proibição de dispositivos eletrônicos, e o registro manual permanece como a única opção. Pessoalmente, não recomendo o registro síncrono de partidas, como é praxe no xadrez. Nesse outro jogo, não esqueçamos que essa prática é obrigatória e com menos movimentos em média. Jogadores de Go avançados conseguem se lembrar de suas partidas em sua totalidade com grande fidelidade por um a dois dias, portanto não há necessidade de se registrar os movimentos durante a partida, o que ajuda a preservar o foco durante o embate. No mais alto nível, não se vê jogadores profissionais de Go utilizando kifus durante suas partidas.
+  
+  \bigskip
+  \bigskip
+
+  \hspace*{\fill} Philippe Fanaro
+
+  \hspace*{\fill} Agosto de 2026
+  
+  \section*{Sobre esta edição}
+  
+  Este livro foi construído programaticamente com \LaTeX, por meio de um pacote que desenha os diagramas vetorialmente, sem pixelação. É possível inspecionar o código aqui: \href{https://github.com/psygo/tsumego\_workbooks}{\path{github.com/psygo/tsumego_workbooks}}. O projeto é análogo ao livro \textit{Técnicas de Go}, \textit{Volume I}, cujo código também pode ser visualizado abertamente: \href{https://github.com/psygo/tecnicas\_de\_go}{\path{github.com/psygo/tecnicas_de_go}}.
 
   \mainmatter
   
   \chapter{9×9}
 
   \kifuChapterPages[%
-    board dimension = 14,
-    board size      = 9,
-    iterations      = 3,
+    board dimension       = 14,
+    board size            = 9,
+    coordinates font size = 6.5,
+    horizontal shift      = 0cm,
+    iterations            = 3,
   ]%
 
   \chapter{13×13}
 
   \kifuChapterPages[%
-    board dimension = 15,
-    board size      = 13,
-    iterations      = 3
+    board dimension       = 15,
+    board size            = 13,
+    coordinates font size = 8.5,
+    horizontal shift      = -0.15cm,
+    iterations            = 3,
   ]%
 
   \chapter{19×19}
 
   \kifuChapterPages[%
-    board dimension = 15.5,
-    board size      = 19,
-    iterations      = 3
+    board dimension       = 15.75,
+    board size            = 19,
+    coordinates font size = 11,
+    horizontal shift      = -0.35cm,
+    iterations            = 3,
   ]
   
   \blankpage
