@@ -60,14 +60,14 @@
   \noindent
   \gameInfoField{0.68\linewidth}{Evento:}%
   \hfill
-  \gameInfoField{0.30\linewidth}{Regras:}%
+  \gameInfoField{0.30\linewidth}{Regras:}\par%
 
   \vspace{0.45cm}
 
   \noindent
   \gameInfoField{0.49\linewidth}{Preto:}%
   \hfill
-  \gameInfoField{0.49\linewidth}{Branco:}%
+  \gameInfoField{0.49\linewidth}{Branco:}\par%
 
   \vspace{0.45cm}
 
@@ -78,7 +78,7 @@
   \hfill
   \gameInfoField{0.28\linewidth}{Compensação:}%
   \hfill
-  \gameInfoField{0.24\linewidth}{Tempo:}%
+  \gameInfoField{0.24\linewidth}{Tempo:}\par%
 }
 
 % For recording moves that can't be shown on the diagram itself --- a stone
@@ -89,13 +89,13 @@
 
 \newcommand{\notesSection}[1][4]{%
   \vspace{0.3cm}
-  \noindent Notas:
+  \noindent Notas:\par
 
   \vspace{0.1cm}
   \noindent
   \hrulefill \\
   \hrulefill \\
-  \hrulefill \\
+  \hrulefill\par
 }
 
 \pgfkeys{%
@@ -114,8 +114,11 @@
 
 \newcommand{\kifuChapterPages}[1][]{%
   \pgfkeys{/phili/kifuChapterPages/.cd, #1}%
+
   \foreach \i in {1,...,\kifuIterations}{
-    \pagebreak
+    % \ifnum\i>1
+      \pagebreak
+    % \fi
 
     \gameInfoSheet
 
@@ -140,7 +143,7 @@
 
     \vspace{0.2cm}
 
-    \notesSection
+    \notesSection   
   }
 }
 
@@ -226,9 +229,9 @@
   
   Registrar partidas é uma prática essencial para um jogador de Go. Serve não somente como método de estudo mas também como arquivação de memórias únicas.
 
-  O \textit{kifu} (棋譜) mais antigo conhecido é o do duplo-quebra escadas, em que um príncipe japonês desafiou o melhor jogador chinês da época, em uma viagem diplomática. Há poucos detalhes certos sobre a partida, mas o registro sobreviveu no livro escrito de Go mais antigo disponível ainda, o Wangyou Qingle Ji (忘憂清樂集), do século XI, da dinastia Song.
+  O \textit{kifu} (棋譜) mais antigo conhecido é o do duplo-quebra escadas, em que um príncipe japonês desafiou o melhor jogador chinês de sua época, em uma viagem diplomática. Há poucos detalhes certos sobre a partida, mas o registro sobreviveu no livro escrito de Go mais antigo disponível, o Wangyou Qingle Ji (忘憂清樂集), ou ``Coleção Esqueça Preocupações Felicidade Pura'', do século XI, da dinastia Song.
   
-  \vspace{-0.3cm}
+  \vspace{-0.25cm}
   
   \begin{figure}[h]
     \centering
@@ -247,11 +250,13 @@
     }
   \end{figure}
 
-  Naquela era, as partidas começavam com 4-4 alternados, e Branco era quem começava. Reza a lenda que foi dito ao representante japonês que o seu oponente chinês era na verade o segundo melhor chinês, o que não era verdade, mas que instigou a suposta fala do príncipe: ``O melhor jogador do pequeno reino não consegue ganhar nem sequer do segundo melhor do grande reino!''
+  Naquela era, as partidas começavam com 4-4 alternados, não havia compensação, e Branco era quem começava. Reza a lenda que foi dito ao representante japonês que seu oponente chinês era, na realidade, somente o segundo melhor chinês. O que não era verdade, mas que instigou a suposta fala do príncipe após a conclusão da partida: ``O melhor jogador do pequeno reino não consegue ganhar nem sequer do segundo melhor do grande reino!''
   
-  Se a citação é verdadeira, jamais saberemos, porém também se diz que Preto teve sua quantia de dificuldades. Representar a China em uma era de honra não é fácil, e talvez consequências graves, senão morte, para um jogo ruim seguiriam tanto para o jogador quanto para sua família. Diz-se que Wang Jixin ou Gu Shiyan --- não se sabe ao certo quem foi que jogou --- suava e tremia enquanto jogava, até encontrar o movimento final brilhante e miraculoso.
+  Se a citação é verdadeira, jamais saberemos, porém também se diz que Branco teve sua quantia de dificuldades. Representar a China em um período histórico de honra não é fácil, e talvez consequências graves, senão morte, para um jogo ruim seguiriam tanto para o jogador quanto para sua família. Diz-se que Wang Jixin ou Gu Shiyan --- não se sabe ao certo quem foi que jogou realmente --- suava e tremia enquanto jogava, até encontrar o movimento final brilhante e miraculoso, um dos maiores tesujis no Go, um duplo quebra-escadas.
   
-  Em registros de partidas, tipicamente, Preto é notado com números, e Branco, com números e círculos. Caso estejam disponíveis canetas multicores, o contraste pode também ajudar. Livros de kifus são inerentemente ferramentas individuais, e cada jogador desenvolverá seu próprio sistema e estilo, mas é útil seguir certas convenções.
+  Em registros de partidas, tipicamente, Preto é notado com números, e Branco, com números e círculos. Caso estejam disponíveis canetas multicores, o contraste pode também ajudar. Quando há recapturas ou kos ocorrendo sobre intersecções já marcadas, os novos movimentos são marcados nas ``Notas'', com algo como ``10 em 7''. 
+  
+  Livros de kifus são inerentemente ferramentas individuais, e cada jogador desenvolverá seu próprio sistema e estilo, mas é útil seguir certas convenções.
   
   A partida da capa é outro ícone histórico do Go, intitulada de ``Nove Dragões Brincando com uma Pérola'', do século XVIII, entre Shi Xiangxia (Branco) e Cheng Lanru (Preto). Até hoje, os chinese são famosos por suas habilidades de luta, e esta partida talvez seja um de seus maiores símbolos. Em poucos movimentos, ambos os jogadores criam nove ou mais dragões, através de movimentos de grande maestria de forma, em posições que desafiam desde profissionais até mesmo as IAs atuais.
   
@@ -260,6 +265,10 @@
   Com ferramentas digitais e IA facilmente disponíveis, sugere-se utilizar o que for mais conveniente e puder solidificar melhor o hábito. Mas papel e caneta terão ainda seu espaço, uma vez que o registro manual nos faz pensar mais a cada movimento, além de ser mais permanente e custoso.
   
   Em torneios, devido a potenciais trapaças, é comum a proibição de dispositivos eletrônicos, e o registro manual permanece como a única opção. Pessoalmente, não recomendo o registro síncrono de partidas, como é praxe no xadrez. Nesse outro jogo, não esqueçamos que essa prática é obrigatória e com menos movimentos em média. Jogadores de Go avançados conseguem se lembrar de suas partidas em sua totalidade com grande fidelidade por um a dois dias, portanto não há necessidade de se registrar os movimentos durante a partida, o que ajuda a preservar o foco durante o embate. No mais alto nível, não se vê jogadores profissionais de Go utilizando kifus durante suas partidas.
+  
+  Este livro optou por também oferecer outros tamanhos de tabuleiro, além do tradicional 19×19, com seções de 9×9 e 13×13. Esses formatos são tipicamente mais utilizados por iniciantes, mas nenhum deles foi solucionado por IAs ainda e são jogados com frequência por jogadores avançados, muito por requisitarem menos tempo de partida. Com mais diversidade de tabuleiros, acabamos por nos desenvolver como jogadores mais completos, com uma visão ainda mais global do jogo.
+
+  Enfim, espero que este livro seja útil para uma melhoria contínua do seu Go, porém, talvez ainda melhor, que ele lhe ajude a registrar memórias que devem ser lembradas!
   
   \bigskip
   \bigskip
@@ -303,7 +312,8 @@
     horizontal shift      = -0.35cm,
     iterations            = 3,
   ]
-  
+
+  \clearpage
   \blankpage
   \blankpage
 \end{document}
