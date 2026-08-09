@@ -56,7 +56,31 @@
   \makebox[#1][l]{#2\ \hrulefill}%
 }
 
+\newcounter{kifuCounter}
+\setcounter{kifuCounter}{0}
+
+\newcommand\kifuNumber[]{
+  \stepcounter{kifuCounter}
+
+  \begin{center}{
+    \begin{tikzpicture}[]
+      \ncm
+
+      \node[
+        draw,
+        shape        = circle,
+        inner sep    = 2.5pt,
+        line width   = 0.030cm,
+        font         = \fontsize{14pt}{14pt}\selectfont,
+      ] 
+        (char)
+        {\textmd{\thekifuCounter}};
+    \end{tikzpicture}
+  \end{center}
+}
+
 \newcommand{\gameInfoSheet}{%
+  \kifuNumber\\
   \noindent
   \gameInfoField{0.68\linewidth}{Evento:}%
   \hfill
@@ -116,9 +140,7 @@
   \pgfkeys{/phili/kifuChapterPages/.cd, #1}%
 
   \foreach \i in {1,...,\kifuIterations}{
-    % \ifnum\i>1
-      \pagebreak
-    % \fi
+    \pagebreak
 
     \gameInfoSheet
 
