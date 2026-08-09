@@ -1,0 +1,65 @@
+\begin{titlepage}
+  \centering
+  
+  \scshape % Small Caps
+
+  \vspace*{-2cm}
+  
+  %---------------------------------------------------------
+  % Título
+  
+  \rule{0.97\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+  \rule{0.97\textwidth}{0.4pt}
+  
+  \vspace{-0.2cm}
+  
+  \fontsize{40}{40}\selectfont Kifu\\
+  \vspace{0.4cm}
+  \fontsize{30}{30}\selectfont 棋譜\\
+  \vspace{0.4cm}
+  \fontsize{25}{25}\selectfont registro de partidas
+
+  \vspace{-0.3cm}
+  
+  \rule{0.97\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace*{3pt}
+  \rule{0.97\textwidth}{1.6pt}
+
+  %---------------------------------------------------------
+
+  \vspace*{0.1cm}
+
+  %---------------------------------------------------------
+  % Imagem
+  
+  % A partida histórica entre Shi Xiangxia (Branco) e Cheng Lanru (Preto) do século XVIII, "Nine Dragons Playing with a Pearl".
+
+  \begin{figure}[h]
+    \centering
+    \hbox{
+      \hspace{0.525cm}
+      \begin{goban}[board dimension       = 15,
+                    board size            = 19,
+                    scale                 = 1,
+                    outline line width    = 0.55mm,
+                    horizontal clip start = 1,
+                    horizontal clip end   = 19,
+                    vertical clip start   = 1,
+                    vertical clip end     = 19,
+                    up to move            = 82]
+        \parseSgfFile{\repoPath/sgf/kifu/nine_dragons_pearl.sgf}
+      \end{goban}
+    }
+  \end{figure}
+
+  %---------------------------------------------------------
+  
+  \vspace*{-0.15cm}
+
+  %---------------------------------------------------------
+  % Autor
+
+  \fontsize{21}{21}\selectfont edição por\\
+  \fontsize{28}{28}\selectfont Philippe Fanaro
+
+  %---------------------------------------------------------
+\end{titlepage}
