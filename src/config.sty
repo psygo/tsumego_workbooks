@@ -49,6 +49,10 @@
 
   % \usepackage{kotex}
 
+  % Simplified Chinese (e.g. 积, 顾, 师), which the Japanese fonts below lack or
+  % draw with Japanese glyph forms. Fandol ships with TeX Live, so it's portable.
+  \newjfontfamily\chinese[BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+
   \newjfontfamily\haranoaji[BoldFont=HaranoAjiMincho-Bold.otf]{HaranoAjiMincho-Regular.otf}
   \newjfontfamily\haranoajigothic[BoldFont=HaranoAjiGothic-Bold.otf]{HaranoAjiGothic-Regular.otf}
 
@@ -96,7 +100,7 @@
             {\fontsize{32pt}{32pt}\selectfont}
 \titlespacing*{\chapter}
               {0pt}
-              {30pt}
+              {10pt}
               {10pt}
 
 \renewcommand{\chaptermark}[1]{%
