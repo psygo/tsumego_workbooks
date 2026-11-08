@@ -1,0 +1,33 @@
+% !TeX program = lualatex
+\documentclass[12pt]{book}
+
+\usepackage[
+  paperwidth  = 438mm, % 210mm (back) + 18mm (spine) + 210mm (front)
+  paperheight = 297mm,
+  margin      = 0mm,
+]{geometry}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\pagestyle{empty}
+
+\def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
+\def\spineWidth{18}
+\def\spineContentLength{210}
+
+\begin{document}
+  \noindent
+  \begin{tikzpicture}[x=1mm, y=1mm, inner sep=0pt, outer sep=0pt]
+    \useasboundingbox (0,0) rectangle (438,297);
+
+    \node[anchor=south west] at (0,0)
+      {\includegraphics{back_cover.pdf}};
+
+    \node[anchor=south west, rotate=90] at ({210+\spineWidth}, {(297-\spineContentLength)/2})
+      {\includegraphics{spine.pdf}};
+
+    \node[anchor=south west] at (210+\spineWidth, 0)
+      {\includegraphics{cover_standalone.pdf}};
+  \end{tikzpicture}
+\end{document}

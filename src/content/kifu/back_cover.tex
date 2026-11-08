@@ -1,0 +1,77 @@
+% !TeX program = lualatex
+\documentclass[12pt]{book}
+
+% A4
+\usepackage[
+  paperheight   = 297mm, 
+  paperwidth    = 210mm,
+  bindingoffset = 10mm,
+  left          = 7.5mm,
+  right         = 15mm,
+  top           = 20mm,
+  bottom        = 22.5mm,
+  footskip      = 6mm,
+]{geometry}
+
+\usepackage[
+  colorlinks,
+  allcolors   = black, 
+  pdfsubject  = {Go;\ Baduk;\ Weiqi},
+  pdftitle    = {Enciclopédia\ de\ Tesujis},
+  pdfauthor   = {Philippe\ Fanaro},
+  pdfkeywords = {Go;\ Baduk;\ Weiqi;\ Tsumegos},
+  pdfproducer = {LaTeX},
+  pdfcreator  = {pdflatex;\ bibtex},
+  bookmarksnumbered,
+]{hyperref}
+
+\def\repoPath{/Users/phili/Code/Go/tsumego_workbooks/src}
+\usepackage{\repoPath/config}
+
+\linespread{1.4}
+
+\begin{document}
+  \begin{titlepage}
+    \setlength\parindent{0ex}
+    
+    \vspace*{-2.8cm}
+
+    \begin{center}
+      \scshape
+
+      \fontsize{38}{38}\selectfont Kifu\\
+      \vspace{0.4cm}
+      \fontsize{28}{28}\selectfont 棋譜\\
+      \vspace{0.4cm}
+      \fontsize{23}{23}\selectfont registro de partidas
+
+    \end{center}
+    
+    \vspace{0.4cm}
+
+    \fontsize{20}{20}\selectfont
+
+    Progredir no Go requer uma reflexão contínua sobre o que fazemos no tabuleiro. No entanto, talvez ainda mais importante do que progredir seja não esquecer.
+    
+    \begin{figure}[h]
+      \centering
+      \hbox{
+        \hspace{2.2cm}
+        \begin{goban}[board dimension       = 12,
+                      board size            = 19,
+                      scale                 = 1,
+                      outline line width    = 0.55mm,
+                      horizontal clip start = 1,
+                      horizontal clip end   = 19,
+                      vertical clip start   = 1,
+                      vertical clip end     = 19]
+          \parseSgfFile{\repoPath/sgf/kifu/1584_Kashio-Rigen_vs_Honinbo-Sansa.sgf}
+        \end{goban}
+      }
+    \end{figure}
+
+    \vspace{0cm}
+
+    Philippe Fanaro é um jogador amador \emph{dan} brasileiro, formado em Engenharia Elétrica pela Escola Politécnica da USP, que procura trazer mais acesso, em língua portuguesa, ao conteúdo de Go disponível em inglês e línguas asiáticas.
+  \end{titlepage}
+\end{document}
